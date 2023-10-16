@@ -13,9 +13,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans_bold"
-        android:text="Siêu thị trực tuyến"
+        android:text="Cửa hàng HTMobile"
         android:textColor="@android:color/background_dark"
-        android:textSize="24sp"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,15 +58,15 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="406dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/open_sans"
         android:lineSpacingExtra="4dp"
-        android:text="Mua sắm qua ứng dụng của cửa hàng siêu thị trực tuyến để được ưu đãi tốt nhất."
+        android:text="Cửa hàng đại lý uỷ quyền chính thức của Apple, chuyên bán các sản phẩm iPhone, iPad, MacBook và tất cả các loại phụ kiện chính hãng đến từ Apple"
         android:textColor="#717171"
-        android:textSize="14sp"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
