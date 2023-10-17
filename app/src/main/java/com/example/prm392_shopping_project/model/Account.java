@@ -3,34 +3,31 @@ package com.example.prm392_shopping_project.model;
 import java.sql.Date;
 
 public class Account {
-    private String email;
-    private int password;
+    private String phone;
+    private String password;
     private Date createdAt;
     private boolean isAdmin;
-    public Account() {
 
-    }
-
-    public Account(String email, int password, Date createdAt, boolean isAdmin) {
-        this.email = email;
+    public Account(String phone, String password, Date createdAt, boolean isAdmin) {
+        this.phone = phone;
         this.password = password;
         this.createdAt = createdAt;
         this.isAdmin = isAdmin;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

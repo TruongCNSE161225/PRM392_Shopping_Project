@@ -1,19 +1,13 @@
 package com.example.prm392_shopping_project.database;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.prm392_shopping_project.model.Product;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class AppDatabaseContext extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PRM392_Project";
+    private static final String DATABASE_NAME = "PRM392_Shopping_Project";
     private static final int DATABASE_VERSION = 2;
 
     public static DatabaseConfig databaseConfig = new DatabaseConfig();

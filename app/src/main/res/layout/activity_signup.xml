@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSignin" />
 
     <EditText
-        android:id="@+id/editTextNumberPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="264dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
@@ -47,14 +47,14 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Mật khẩu"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
     <EditText
-        android:id="@+id/editTextNumberPasswordConfirm"
+        android:id="@+id/editTextConfirmTextPassword"
         android:layout_width="264dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
@@ -62,11 +62,11 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Nhập lại mật khẩu"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <Button
         android:id="@+id/buttonSignup"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPasswordConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmTextPassword" />
 
     <TextView
         android:id="@+id/viewTextForSignin"

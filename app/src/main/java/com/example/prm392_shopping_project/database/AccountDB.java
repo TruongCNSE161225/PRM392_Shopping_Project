@@ -15,7 +15,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>{
+public class AccountDB extends AppDatabaseContext implements IGenericDB<Account> {
     public AccountDB(@Nullable Context context) {
         super(context);
     }
@@ -25,9 +25,9 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         SQLiteDatabase db = super.getWritableDatabase();
         String isAdmin;
         ContentValues values = new ContentValues();
-        values.put("email", account.getEmail());
+        values.put("phone", account.getPhone());
         values.put("password", account.getPassword());
-        values.put("date_created", account.getCreatedAt()+"");
+        values.put("date_created", account.getCreatedAt() + "");
         if (account.isAdmin() == false) {
             isAdmin = "0";
         } else {
@@ -53,8 +53,8 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         return null;
     }
 
-    public boolean isAdmin(String email) {
-        String query = "SELECT * FROM Accounts WHERE email = '" + email+"'";
+    public boolean isAdmin(String phone) {
+        String query = "SELECT * FROM Accounts WHERE phone = '" + phone + "'";
         long millis = System.currentTimeMillis();
         Date date = new Date(millis);
         SQLiteDatabase db = this.getReadableDatabase();
@@ -63,7 +63,7 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         if (cursor.moveToFirst()) {
             int isAdmin_temp = cursor.getInt(3);
             if (isAdmin_temp == 0) {
-                isAdmin  = false;
+                isAdmin = false;
             } else {
                 isAdmin = true;
             }
@@ -81,8 +81,8 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
 
         while (cursor.moveToNext()) {
 
-           String email =  cursor.getString(0);
-           int pass =  cursor.getInt(1);
+            String phone = cursor.getString(0);
+            String pass = cursor.getString(1);
             Date c = new Date(cursor.getLong(2));
             int isAdmin_temp = cursor.getInt(3);
             boolean isAdmin;
@@ -91,7 +91,7 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
             } else {
                 isAdmin = true;
             }
-            Account account = new Account(email, pass, c, isAdmin);
+            Account account = new Account(phone, pass, c, isAdmin);
             list.add(account);
         }
         return list;
@@ -102,9 +102,9 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         long millis = System.currentTimeMillis();
         Date today = new Date(millis);
         long count = 0;
-        Account a = new Account("0123", 1234, today, false);
-        Account b = new Account("012345", 1234, today, false);
-        Account c = new Account("01234", 1234, today, true);
+        Account a = new Account("0123", "abc123", today, false);
+        Account b = new Account("012345", "abc123", today, false);
+        Account c = new Account("01234", "abc123", today, true);
         count = insert(a);
         count = insert(b);
         count = insert(c);
@@ -112,24 +112,24 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         return count;
     }
 
-    public Boolean checkUserName(String username) {
+    public Boolean checkPhone(String phone) {
         SQLiteDatabase db = super.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " +ACCOUNT_TABLE + " " +
-                "where email=?", new String[]{username});
-        if (cursor.getCount() > 0){
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TABLE + " " +
+                "where phone=?", new String[]{phone});
+        if (cursor.getCount() > 0) {
             return true;
-        } else{
+        } else {
             return false;
         }
     }
 
-    public Boolean checkUserNamePassword(String username, String password) {
+    public Boolean checkPhonePassword(String phone, String password) {
         SQLiteDatabase db = super.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " +ACCOUNT_TABLE + " " +
-                "where email=? and password = ?", new String[]{username, password});
-        if (cursor.getCount() > 0){
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TABLE + " " +
+                "where phone=? and password = ?", new String[]{phone, password});
+        if (cursor.getCount() > 0) {
             return true;
-        } else{
+        } else {
             return false;
         }
     }
