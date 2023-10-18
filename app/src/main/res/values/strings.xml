@@ -10,6 +10,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="cate_name">"Fruit"</string>
+    <string name="login_signup">"Bạn không có tài khoản? <b>Tạo tài khoản của bạn ngay bây giờ</b></string>
+    <string name="signup_login">"Bạn có tài khoản? <b>Đăng nhập ngay bây giờ</b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="menu_edit_dele">

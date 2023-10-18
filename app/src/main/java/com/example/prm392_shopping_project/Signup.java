@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.prm392_shopping_project.database.AccountDB;
 import com.example.prm392_shopping_project.model.Account;
@@ -18,7 +19,7 @@ public class Signup extends AppCompatActivity {
 
     EditText phone, password, confirmPassword;
     Button signup;
-    Button login;
+    TextView login;
     AccountDB db;
 
     @Override
@@ -28,10 +29,10 @@ public class Signup extends AppCompatActivity {
 
         phone = findViewById(R.id.editTextPhone);
         password = findViewById(R.id.editTextPassword);
-        confirmPassword = findViewById(R.id.editTextConfirmTextPassword);
+        confirmPassword = findViewById(R.id.editTextConfirmPassword);
         db = new AccountDB(this);
         signup = findViewById(R.id.buttonSignup);
-        login = findViewById(R.id.buttonLogin);
+        login = findViewById(R.id.textViewLogin);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,11 +44,11 @@ public class Signup extends AppCompatActivity {
                 if (TextUtils.isEmpty(userPhone) || TextUtils.isEmpty(userPassword) || TextUtils.isEmpty(confirmPass)) {
                     Toast.makeText(Signup.this, "Không được để trống", Toast.LENGTH_SHORT).show();
                 } else if (!userPassword.equals(confirmPass)) {
-                    Toast.makeText(Signup.this, "Mật khẩu và xác nhận mật khẩu không khớp", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Mật khẩu và xác nhận mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
                 } else if (db.checkPhone(userPhone)) {
-                    Toast.makeText(Signup.this, "Tài khoản đã tồn tại, vui lòng chọn tên đăng nhập khác", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Tài khoản đã tồn tại trên hệ thống", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean isAdmin = true;
+                    boolean isAdmin = false;
                     Date currentDate = new java.sql.Date(System.currentTimeMillis());
                     Account account = new Account(userPhone, userPassword, currentDate, isAdmin);
 

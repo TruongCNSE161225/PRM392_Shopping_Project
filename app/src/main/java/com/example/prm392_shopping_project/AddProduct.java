@@ -8,7 +8,6 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -25,17 +24,13 @@ import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.database.ProductDB;
-import com.example.prm392_shopping_project.fragment.CategoryFragment;
-import com.example.prm392_shopping_project.fragment.ProductFragment;
-import com.example.prm392_shopping_project.model.Category;
 import com.example.prm392_shopping_project.model.Product;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Add_Product extends AppCompatActivity {
+public class AddProduct extends AppCompatActivity {
     ProductDB productDB;
     CategoryDB categoryDB;
     EditText edt_name, edt_description, edt_price, edt_unit, edt_quantity, edt_discount;
@@ -75,13 +70,13 @@ public class Add_Product extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(Add_Product.this, "You need select Category", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddProduct.this, "You need select Category", Toast.LENGTH_LONG).show();
             }
         });
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityCompat.requestPermissions(Add_Product.this,
+                ActivityCompat.requestPermissions(AddProduct.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
             }
         });
@@ -106,7 +101,7 @@ public class Add_Product extends AppCompatActivity {
                     byte[] bigImgUrl = imageViewToByte(img);
                     Product p = new Product(name, description, price, quantity, unit, id_cate, discount, imgUrl, bigImgUrl);
                     productDB.insert(p);
-                    Toast.makeText(Add_Product.this, "Add thanh cong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddProduct.this, "Add thanh cong", Toast.LENGTH_SHORT).show();
                     edt_name.setText("");
                     edt_description.setText("");
                     edt_price.setText("");

@@ -20,6 +20,17 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         super(context);
     }
 
+    public Boolean checkLogin(String phone, String password) {
+        SQLiteDatabase db = super.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TABLE + " " +
+                "where phone=? and password = ?", new String[]{phone, password});
+        if (cursor.getCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public long insert(Account account) {
         SQLiteDatabase db = super.getWritableDatabase();
@@ -83,7 +94,7 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
 
             String phone = cursor.getString(0);
             String pass = cursor.getString(1);
-            Date c = new Date(cursor.getLong(2));
+            Date date = new Date(cursor.getLong(2));
             int isAdmin_temp = cursor.getInt(3);
             boolean isAdmin;
             if (isAdmin_temp == 0) {
@@ -91,7 +102,7 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
             } else {
                 isAdmin = true;
             }
-            Account account = new Account(phone, pass, c, isAdmin);
+            Account account = new Account(phone, pass, date, isAdmin);
             list.add(account);
         }
         return list;
@@ -102,13 +113,8 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         long millis = System.currentTimeMillis();
         Date today = new Date(millis);
         long count = 0;
-        Account a = new Account("0123", "abc123", today, false);
-        Account b = new Account("012345", "abc123", today, false);
-        Account c = new Account("01234", "abc123", today, true);
-        count = insert(a);
-        count = insert(b);
-        count = insert(c);
-
+        Account admin = new Account("12345", "admin", today, true);
+        count = insert(admin);
         return count;
     }
 
@@ -116,17 +122,6 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
         SQLiteDatabase db = super.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TABLE + " " +
                 "where phone=?", new String[]{phone});
-        if (cursor.getCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public Boolean checkPhonePassword(String phone, String password) {
-        SQLiteDatabase db = super.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + ACCOUNT_TABLE + " " +
-                "where phone=? and password = ?", new String[]{phone, password});
         if (cursor.getCount() > 0) {
             return true;
         } else {

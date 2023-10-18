@@ -49,7 +49,7 @@ public class UDProductActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) return;
         Product pro = (Product) bundle.get("object_product");
-        Intent intent = new Intent(UDProductActivity.this, Update_Product.class);
+        Intent intent = new Intent(UDProductActivity.this, UpdateProduct.class);
         bundle.putSerializable("object_product", pro);
         intent.putExtras(bundle);
         startActivity(intent);

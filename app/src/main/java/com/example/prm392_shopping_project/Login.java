@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.AccountDB;
@@ -16,8 +17,8 @@ public class Login extends AppCompatActivity {
 
     EditText phone, password;
     Button login;
-    Button signup;
     AccountDB db;
+    TextView signup;
     boolean isAdmin;
 
     @Override
@@ -28,7 +29,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.editTextPassword);
         db = new AccountDB(this);
         login = findViewById(R.id.buttonLogin);
-        signup = findViewById(R.id.buttonSignup);
+        signup = findViewById(R.id.textViewForSignup);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +40,7 @@ public class Login extends AppCompatActivity {
                 if (TextUtils.isEmpty(userPhone) || TextUtils.isEmpty(userPass)) {
                     Toast.makeText(Login.this, "Không được để trống", Toast.LENGTH_SHORT).show();
                 } else {
-                    Boolean checkuserpass = db.checkPhonePassword(userPhone, userPass);
+                    Boolean checkuserpass = db.checkLogin(userPhone, userPass);
                     if (checkuserpass == true) {
 
                         if (isAdmin) {
@@ -53,10 +54,8 @@ public class Login extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                         }
-                    } else if (checkuserpass == false) {
-                        Toast.makeText(Login.this, "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(Login.this, "Tính năng đang được bảo trì, xin quý khách thông cảm", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
