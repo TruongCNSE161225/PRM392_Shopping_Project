@@ -22,18 +22,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.prm392_shopping_project.adapter.CategoryCRUDAdapter;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.database.ProductDB;
-import com.example.prm392_shopping_project.fragment.CategoryFragment;
 import com.example.prm392_shopping_project.model.Category;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
-public class UpdateDeleteCategory extends AppCompatActivity {
+public class UpdateDeleteCategoryActivity extends AppCompatActivity {
     TextView tv_id;
     EditText edt_name;
     ImageView imgView;
@@ -68,7 +64,7 @@ public class UpdateDeleteCategory extends AppCompatActivity {
         btn_uploadUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityCompat.requestPermissions(UpdateDeleteCategory.this,
+                ActivityCompat.requestPermissions(UpdateDeleteCategoryActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
             }
         });
@@ -109,7 +105,7 @@ public class UpdateDeleteCategory extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
-                    Toast.makeText(UpdateDeleteCategory.this, "This category still exists product!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateDeleteCategoryActivity.this, "This category still exists product!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

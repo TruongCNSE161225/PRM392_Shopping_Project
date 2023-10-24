@@ -19,10 +19,10 @@ import com.example.prm392_shopping_project.model.OrderDetail;
 
 import java.sql.Date;
 
-public class BuyConfirm extends AppCompatActivity {
+public class BuyConfirmActivity extends AppCompatActivity {
 
-    EditText ed_name, ed_phone, ed_email, ed_address;
-    TextView confirm;
+    EditText editTextName, editTextPhone, editTextEmail, editTextAddress;
+    TextView textViewOrder;
     CustomerDB customerDB;
     OrderDB orderDB;
     OrderDetailDB orderDetailDB;
@@ -37,13 +37,13 @@ public class BuyConfirm extends AppCompatActivity {
         totalPrice = i.getStringExtra("totalPrice");
         init();
 
-        confirm.setOnClickListener(new View.OnClickListener() {
+        textViewOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = ed_name.getText().toString();
-                String phone = ed_phone.getText().toString();
-                String email = ed_email.getText().toString();
-                String address = ed_address.getText().toString();
+                String name = editTextName.getText().toString();
+                String phone = editTextPhone.getText().toString();
+                String email = editTextEmail.getText().toString();
+                String address = editTextAddress.getText().toString();
                 if (name.equals("") || phone.equals("") || email.equals("") || address.equals("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
                     builder.setTitle("Thông báo");
@@ -73,11 +73,11 @@ public class BuyConfirm extends AppCompatActivity {
     }
 
     public void init() {
-        ed_name = findViewById(R.id.ed_ten);
-        ed_phone = findViewById(R.id.ed_sodienthoai);
-        ed_email = findViewById(R.id.ed_email);
-        ed_address = findViewById(R.id.ed_diachi);
-        confirm = findViewById(R.id.txt_dathang);
+        editTextName = findViewById(R.id.editTextName);
+        editTextPhone = findViewById(R.id.editTextPhone);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextAddress = findViewById(R.id.editTextAddress);
+        textViewOrder = findViewById(R.id.textViewOrder);
         customerDB = new CustomerDB(this);
         orderDB = new OrderDB(this);
         orderDetailDB = new OrderDetailDB(this);

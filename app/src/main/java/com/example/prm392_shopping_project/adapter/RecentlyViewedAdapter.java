@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prm392_shopping_project.ProductDetails;
+import com.example.prm392_shopping_project.ProductDetailsActivity;
 import com.example.prm392_shopping_project.R;
 import com.example.prm392_shopping_project.model.Product;
 
@@ -54,7 +54,7 @@ public class RecentlyViewedAdapter extends RecyclerView.Adapter<RecentlyViewedAd
     @NonNull
     @Override
     public RecentlyViewedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.recently_viewed_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_recently_viewed_items, parent, false);
 
         return new RecentlyViewedViewHolder(view);
     }
@@ -75,7 +75,7 @@ public class RecentlyViewedAdapter extends RecyclerView.Adapter<RecentlyViewedAd
             @Override
             public void onClick(View view) {
 
-                Intent i=new Intent(context, ProductDetails.class);
+                Intent i=new Intent(context, ProductDetailsActivity.class);
                 Product product = recentlyViewedList.get(position);
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("object_product",product);

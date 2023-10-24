@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prm392_shopping_project.AddProduct;
+import com.example.prm392_shopping_project.AddProductActivity;
 import com.example.prm392_shopping_project.R;
 import com.example.prm392_shopping_project.UDProductActivity;
 import com.example.prm392_shopping_project.adapter.ProductAdapter;
@@ -37,7 +37,7 @@ public class ProductFragment extends Fragment implements ProductAdapter.ProductL
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_product, container, false);
+        return inflater.inflate(R.layout.activity_fragment_product, container, false);
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -52,7 +52,7 @@ public class ProductFragment extends Fragment implements ProductAdapter.ProductL
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AddProduct.class);
+                Intent intent = new Intent(getActivity(), AddProductActivity.class);
                 startActivity(intent);
             }
         });

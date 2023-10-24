@@ -23,7 +23,7 @@ import com.nex3z.notificationbadge.NotificationBadge;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-public class ProductDetails extends AppCompatActivity {
+public class ProductDetailsActivity extends AppCompatActivity {
 
     ImageView imgView, back, btn_cart, cart;
     TextView proName, proPrice, proDesc, proQty, proUnit;
@@ -74,14 +74,14 @@ public class ProductDetails extends AppCompatActivity {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ProductDetails.this, CartActivity.class);
+                Intent i = new Intent(ProductDetailsActivity.this, CartActivity.class);
                 startActivity(i);
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ProductDetails.this, MainActivity.class);
+                Intent i = new Intent(ProductDetailsActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -105,7 +105,7 @@ public class ProductDetails extends AppCompatActivity {
                     MainActivity.cartList.add(new Cart(id, name, price_cart, unit, 1, img));
                 }
                 bage.setText(String.valueOf(MainActivity.cartList.size()));
-                Intent i = new Intent(ProductDetails.this, CartActivity.class);
+                Intent i = new Intent(ProductDetailsActivity.this, CartActivity.class);
                 startActivity(i);
             }
         });

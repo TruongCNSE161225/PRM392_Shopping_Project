@@ -21,16 +21,15 @@ import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.fragment.CategoryFragment;
-import com.example.prm392_shopping_project.fragment.ProductFragment;
 import com.example.prm392_shopping_project.model.Category;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-public class AddCategory extends AppCompatActivity {
-    EditText edt_name;
+public class AddCategoryActivity extends AppCompatActivity {
+    EditText editTextName;
     ImageView imageView;
-    Button btn_upload, btn_add, btn_cancel;
+    Button buttonAdd, buttonUploadImage, buttonCancel;
     CategoryDB db;
     final int REQUEST_CODE_GALLERY = 999;
 
@@ -40,30 +39,30 @@ public class AddCategory extends AppCompatActivity {
         setContentView(R.layout.activity_add_category);
 
         db = new CategoryDB(this);
-        edt_name = findViewById(R.id.edt_nameadd);
-        imageView = findViewById(R.id.imgAddCate);
-        btn_add = findViewById(R.id.btn_add);
-        btn_upload = findViewById(R.id.btn_upload);
-        btn_cancel = findViewById(R.id.btn_cancel);
+        editTextName = findViewById(R.id.editTextName);
+        imageView = findViewById(R.id.imageView);
+        buttonAdd = findViewById(R.id.buttonAdd);
+        buttonUploadImage = findViewById(R.id.buttonUploadImage);
+        buttonCancel = findViewById(R.id.buttonCancel);
 
-        btn_upload.setOnClickListener(new View.OnClickListener() {
+        buttonUploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityCompat.requestPermissions(AddCategory.this,
+                ActivityCompat.requestPermissions(AddCategoryActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
             }
         });
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
                     db.insert(new Category(
-                            edt_name.getText().toString().trim(),
+                            editTextName.getText().toString().trim(),
                             imageViewToByte(imageView))
                     );
-                    Toast.makeText(AddCategory.this, "Add thanh cong", Toast.LENGTH_SHORT).show();
-                    edt_name.setText("");
+                    Toast.makeText(AddCategoryActivity.this, "Thêm loại sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                    editTextName.setText("");
                     imageView.setImageResource(R.drawable.profile_picture);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -71,10 +70,10 @@ public class AddCategory extends AppCompatActivity {
             }
         });
 
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AddCategory.this, CategoryFragment.class);
+                Intent intent = new Intent(AddCategoryActivity.this, CategoryFragment.class);
                 startActivity(intent);
             }
         });

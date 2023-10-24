@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_shopping_project.AllProductActivity;
-import com.example.prm392_shopping_project.ProductDetails;
 import com.example.prm392_shopping_project.R;
 import com.example.prm392_shopping_project.model.Category;
-import com.example.prm392_shopping_project.model.Product;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.AllCategoryViewHolder> {
@@ -49,7 +45,7 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
     @Override
     public AllCategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.all_category_row_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_all_category_row_items, parent, false);
 
         return new AllCategoryViewHolder(view);
     }

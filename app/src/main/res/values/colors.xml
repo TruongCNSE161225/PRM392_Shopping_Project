@@ -9,6 +9,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#000080</color>
+    <color name="Light_blue">#00FFFF</color>
     <color name="secondary_text">#727272</color>
     <color name="menu">#512DAB</color>
     <color name="sliver">#FFCC99</color>

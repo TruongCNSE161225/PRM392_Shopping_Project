@@ -2,7 +2,6 @@ package com.example.prm392_shopping_project.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prm392_shopping_project.AddCategory;
+import com.example.prm392_shopping_project.AddCategoryActivity;
 import com.example.prm392_shopping_project.R;
-import com.example.prm392_shopping_project.UpdateDeleteCategory;
+import com.example.prm392_shopping_project.UpdateDeleteCategoryActivity;
 import com.example.prm392_shopping_project.adapter.CategoryCRUDAdapter;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.model.Category;
@@ -39,7 +38,7 @@ public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.Ca
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_category, container, false);
+        return inflater.inflate(R.layout.activity_fragment_category, container, false);
     }
 
     @Override
@@ -56,7 +55,7 @@ public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.Ca
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AddCategory.class);
+                Intent intent = new Intent(getActivity(), AddCategoryActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +82,7 @@ public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.Ca
     @Override
     public void onItemClick(View view, int position) {
         Category category = adapter.getCategoryAt(position);
-        Intent intent = new Intent(getActivity(), UpdateDeleteCategory.class);
+        Intent intent = new Intent(getActivity(), UpdateDeleteCategoryActivity.class);
         intent.putExtra("id", category.getId());
         intent.putExtra("name", category.getName());
         intent.putExtra("image", category.getImageUrl());

@@ -9,17 +9,17 @@
         android:id="@+id/menuProduct"
         android:name="com.example.prm392_shopping_project.fragment.ProductFragment"
         android:label="Product"
-        tools:layout="@layout/fragment_product"/>
+        tools:layout="@layout/activity_fragment_product"/>
 
     <fragment
         android:id="@+id/menuCategory"
         android:name="com.example.prm392_shopping_project.fragment.CategoryFragment"
         android:label="Category"
-        tools:layout="@layout/fragment_category"/>
+        tools:layout="@layout/activity_fragment_category"/>
 
     <fragment
         android:id="@+id/menuTotalOrder"
         android:name="com.example.prm392_shopping_project.fragment.OrderFragment"
         android:label="Total Order"
-        tools:layout="@layout/fragment_total_order"/>
+        tools:layout="@layout/activity_fragment_total_order"/>
 </navigation>

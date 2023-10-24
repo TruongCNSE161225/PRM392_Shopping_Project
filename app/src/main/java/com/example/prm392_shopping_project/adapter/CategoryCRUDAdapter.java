@@ -40,7 +40,7 @@ public class CategoryCRUDAdapter extends RecyclerView.Adapter<CategoryCRUDAdapte
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category_crud, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_category_crud, parent, false);
         return new CategoryViewHolder(view);
     }
 

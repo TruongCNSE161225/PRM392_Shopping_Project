@@ -1,15 +1,9 @@
 package com.example.prm392_shopping_project;
 
-import static com.example.prm392_shopping_project.R.drawable.ic_home_fish;
-import static com.example.prm392_shopping_project.R.drawable.ic_home_fruits;
-import static com.example.prm392_shopping_project.R.drawable.ic_home_meats;
-import static com.example.prm392_shopping_project.R.drawable.ic_home_veggies;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -90,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         allCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, AllCategory.class);
+                Intent i = new Intent(MainActivity.this, AllCategoryActivity.class);
                 startActivity(i);
             }
         });
@@ -104,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, Login.class);
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });

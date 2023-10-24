@@ -26,7 +26,7 @@ import com.example.prm392_shopping_project.model.Product;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-public class UpdateProduct extends AppCompatActivity {
+public class UpdateProductActivity extends AppCompatActivity {
     EditText edt_name, edt_description, edt_price, edt_unit, edt_quantity, edt_discount;
     ImageView img_imv;
     SQLiteDatabase db;
@@ -62,7 +62,7 @@ public class UpdateProduct extends AppCompatActivity {
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityCompat.requestPermissions(UpdateProduct.this,
+                ActivityCompat.requestPermissions(UpdateProductActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
             }
         });
@@ -87,7 +87,7 @@ public class UpdateProduct extends AppCompatActivity {
 
         productDB = new ProductDB(this);
         productDB.update(pro);
-        Toast.makeText(UpdateProduct.this, "Update thanh cong", Toast.LENGTH_LONG).show();
+        Toast.makeText(UpdateProductActivity.this, "Update thanh cong", Toast.LENGTH_LONG).show();
     }
 
     private byte[] imageViewToByte(ImageView imageView) {

@@ -3,7 +3,6 @@ package com.example.prm392_shopping_project;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -18,13 +17,10 @@ import android.widget.ImageView;
 import com.example.prm392_shopping_project.adapter.AllCategoryAdapter;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.model.Category;
-import com.example.prm392_shopping_project.model.Product;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class AllCategory extends AppCompatActivity {
+public class AllCategoryActivity extends AppCompatActivity {
 
     RecyclerView AllCategoryRecycler;
     AllCategoryAdapter allCategoryAdapter;
@@ -37,14 +33,14 @@ public class AllCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_category);
 
-        AllCategoryRecycler = findViewById(R.id.all_category);
+        AllCategoryRecycler = findViewById(R.id.allCategory);
         back = findViewById(R.id.back);
         categoryDB = new CategoryDB(this);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent back = new Intent(AllCategory.this, MainActivity.class);
+                Intent back = new Intent(AllCategoryActivity.this, MainActivity.class);
                 startActivity(back);
                 finish();
             }

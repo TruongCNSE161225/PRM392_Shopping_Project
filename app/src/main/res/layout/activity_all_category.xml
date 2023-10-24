@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllCategory">
+    tools:context=".AllCategoryActivity">
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select a category"
+        android:text="Lựa chọn loại sản phẩm"
         android:fontFamily="@font/open_sans"
         android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="@+id/back"
@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/all_category"
+        android:id="@+id/allCategory"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
@@ -41,12 +41,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView"
         app:srcCompat="@drawable/ic_cart_black" />
 </androidx.constraintlayout.widget.ConstraintLayout>

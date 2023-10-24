@@ -15,7 +15,7 @@ import com.example.prm392_shopping_project.model.Account;
 
 import java.sql.Date;
 
-public class Signup extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     EditText phone, password, confirmPassword;
     Button signup;
@@ -42,11 +42,11 @@ public class Signup extends AppCompatActivity {
                 String confirmPass = confirmPassword.getText().toString();
 
                 if (TextUtils.isEmpty(userPhone) || TextUtils.isEmpty(userPassword) || TextUtils.isEmpty(confirmPass)) {
-                    Toast.makeText(Signup.this, "Không được để trống", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "Không được để trống", Toast.LENGTH_SHORT).show();
                 } else if (!userPassword.equals(confirmPass)) {
-                    Toast.makeText(Signup.this, "Mật khẩu và xác nhận mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "Mật khẩu và xác nhận mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
                 } else if (db.checkPhone(userPhone)) {
-                    Toast.makeText(Signup.this, "Tài khoản đã tồn tại trên hệ thống", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "Tài khoản đã tồn tại trên hệ thống", Toast.LENGTH_SHORT).show();
                 } else {
                     boolean isAdmin = false;
                     Date currentDate = new java.sql.Date(System.currentTimeMillis());
@@ -54,11 +54,11 @@ public class Signup extends AppCompatActivity {
 
                     long result = db.insert(account);
                     if (result != -1) {
-                        Toast.makeText(Signup.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        Toast.makeText(SignupActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(Signup.this, "Đăng ký thất bại, vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "Đăng ký thất bại, vui lòng thử lại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class Signup extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });

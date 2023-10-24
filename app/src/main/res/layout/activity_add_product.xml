@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProduct">
+    tools:context=".AddProductActivity">
 
     <TextView
-        android:id="@+id/tv_addproduct"
+        android:id="@+id/textViewAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -19,136 +19,136 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_addname"
+        android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="name"
+        android:hint="Tên sản phẩm"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_addproduct"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAddProduct"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_adddescription"
+        android:id="@+id/editTextDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="description"
+        android:hint="Nội dung"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_addname"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_addprice"
+        android:id="@+id/editTextPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="price"
+        android:hint="Giá"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_adddescription"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_addquantity"
+        android:id="@+id/editTextQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="quantity"
+        android:hint="Số lượng sản phẩm"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_addprice"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPrice"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_addunit"
+        android:id="@+id/editTextUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="unit"
+        android:hint="Đơn vị sản phẩm"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_addquantity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextQuantity"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Spinner
-        android:id="@+id/spinner_category"
+        android:id="@+id/spinnerCategory"
         android:layout_width="241dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_adddiscount"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDiscount"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_adddiscount"
+        android:id="@+id/editTextDiscount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="discount"
+        android:hint="Chiết khấu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_addunit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUnit"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/btn_addProduct"
+        android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Add"
+        android:text="Thêm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imv_addImg"
+        android:id="@+id/imageView"
         android:layout_width="129dp"
         android:layout_height="126dp"
         android:layout_marginStart="92dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/profile_picture"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_category"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/btn_addImg"
+        android:id="@+id/buttonUploadImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginTop="54dp"
-        android:text="upload"
-        app:layout_constraintStart_toEndOf="@+id/imv_addImg"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
+        android:text="Thêm ảnh"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
 
     <Button
-        android:id="@+id/btn_cancelAddProduct"
+        android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
         android:layout_marginEnd="101dp"
         android:layout_marginBottom="20dp"
-        android:text="Cancel"
+        android:text="Huỷ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_addProduct" />
+        app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

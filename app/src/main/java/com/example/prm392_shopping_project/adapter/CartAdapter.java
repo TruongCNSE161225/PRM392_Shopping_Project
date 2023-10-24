@@ -8,16 +8,12 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prm392_shopping_project.CartActivity;
 import com.example.prm392_shopping_project.Interface.IImageOnClick;
 import com.example.prm392_shopping_project.MainActivity;
 import com.example.prm392_shopping_project.R;
@@ -43,7 +39,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_cart, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_item_cart, parent, false);
 
         return new MyViewHolder(view);
     }

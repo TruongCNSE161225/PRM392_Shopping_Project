@@ -10,19 +10,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.prm392_shopping_project.adapter.CartAdapter;
-import com.example.prm392_shopping_project.model.Cart;
 import com.example.prm392_shopping_project.model.Event.EventCalculateTotalPrice;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
     CartAdapter cartAdapter;
@@ -63,7 +58,7 @@ public class CartActivity extends AppCompatActivity {
                     builder.show();
 
                 } else {
-                    Intent i = new Intent(getApplicationContext(), BuyConfirm.class);
+                    Intent i = new Intent(getApplicationContext(), BuyConfirmActivity.class);
                     i.putExtra("totalPrice", totalPrice() + "");
                     startActivity(i);
                 }

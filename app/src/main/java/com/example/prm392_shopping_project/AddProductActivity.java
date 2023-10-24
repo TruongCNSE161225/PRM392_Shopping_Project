@@ -24,20 +24,21 @@ import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.database.ProductDB;
+import com.example.prm392_shopping_project.fragment.ProductFragment;
 import com.example.prm392_shopping_project.model.Product;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.List;
 
-public class AddProduct extends AppCompatActivity {
+public class AddProductActivity extends AppCompatActivity {
     ProductDB productDB;
     CategoryDB categoryDB;
-    EditText edt_name, edt_description, edt_price, edt_unit, edt_quantity, edt_discount;
-    ImageView img;
-    Spinner spinner_category;
-    int id_cate;
-    Button btn_upload, btn_cancel, btn_add;
+    EditText editTextName, editTextDescription, editTextPrice, editTextUnit, editTextQuantity, editTextDiscount;
+    ImageView imageView;
+    Spinner spinnerCategory;
+    int idCategory;
+    Button buttonAdd, buttonUploadImage, buttonCancel;
     final int REQUEST_CODE_GALLERY = 999;
 
     @Override
@@ -45,75 +46,77 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
         productDB = new ProductDB(this);
-        edt_name = findViewById(R.id.edt_addname);
-        edt_description = findViewById(R.id.edt_adddescription);
-        edt_price = findViewById(R.id.edt_addprice);
-        edt_unit = findViewById(R.id.edt_addunit);
-        edt_quantity = findViewById(R.id.edt_addquantity);
-        edt_discount = findViewById(R.id.edt_adddiscount);
-        spinner_category = findViewById(R.id.spinner_category);
-        img = findViewById(R.id.imv_addImg);
-        btn_upload = findViewById(R.id.btn_addImg);
-        btn_cancel = findViewById(R.id.btn_cancelAddProduct);
-        btn_add = findViewById(R.id.btn_addProduct);
-//
+        editTextName = findViewById(R.id.editTextName);
+        editTextDescription = findViewById(R.id.editTextDescription);
+        editTextPrice = findViewById(R.id.editTextPrice);
+        editTextUnit = findViewById(R.id.editTextUnit);
+        editTextQuantity = findViewById(R.id.editTextQuantity);
+        editTextDiscount = findViewById(R.id.editTextDiscount);
+        spinnerCategory = findViewById(R.id.spinnerCategory);
+        imageView = findViewById(R.id.imageView);
+        buttonAdd = findViewById(R.id.buttonAdd);
+        buttonUploadImage = findViewById(R.id.buttonUploadImage);
+        buttonCancel = findViewById(R.id.buttonCancel);
         categoryDB = new CategoryDB(this);
         List<String> listNameCategory = categoryDB.getNameCategory();
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listNameCategory);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_category.setAdapter(arrayAdapter);
-        spinner_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerCategory.setAdapter(arrayAdapter);
+        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                id_cate = categoryDB.getIdbyName(listNameCategory.get(position));
+                idCategory = categoryDB.getIdbyName(listNameCategory.get(position));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(AddProduct.this, "You need select Category", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddProductActivity.this, "You need select Category", Toast.LENGTH_LONG).show();
             }
         });
-        btn_upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ActivityCompat.requestPermissions(AddProduct.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
-            }
-        });
-        btn_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(Add_Product.this, ProductFragment.class);
-//                startActivity(intent);
-            }
-        });
-        btn_add.setOnClickListener(new View.OnClickListener() {
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    String name = edt_name.getText().toString();
-                    String description = edt_description.getText().toString();
-                    Double price = Double.valueOf(edt_price.getText().toString());
-                    int quantity = Integer.parseInt(edt_quantity.getText().toString());
-                    String unit = edt_unit.getText().toString();
-                    int discount = Integer.parseInt(edt_discount.getText().toString());
-                    byte[] imgUrl = imageViewToByte(img);
-                    byte[] bigImgUrl = imageViewToByte(img);
-                    Product p = new Product(name, description, price, quantity, unit, id_cate, discount, imgUrl, bigImgUrl);
+                    String name = editTextName.getText().toString();
+                    String description = editTextDescription.getText().toString();
+                    Double price = Double.valueOf(editTextPrice.getText().toString());
+                    int quantity = Integer.parseInt(editTextQuantity.getText().toString());
+                    String unit = editTextUnit.getText().toString();
+                    int discount = Integer.parseInt(editTextDiscount.getText().toString());
+                    byte[] imgUrl = imageViewToByte(imageView);
+                    byte[] bigImgUrl = imageViewToByte(imageView);
+                    Product p = new Product(name, description, price, quantity, unit, idCategory, discount, imgUrl, bigImgUrl);
                     productDB.insert(p);
-                    Toast.makeText(AddProduct.this, "Add thanh cong", Toast.LENGTH_SHORT).show();
-                    edt_name.setText("");
-                    edt_description.setText("");
-                    edt_price.setText("");
-                    edt_unit.setText("");
-                    edt_quantity.setText("");
-                    edt_discount.setText("");
-                    img.setImageResource(R.drawable.profile_picture);
+                    Toast.makeText(AddProductActivity.this, "Thêm sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                    editTextName.setText("");
+                    editTextDescription.setText("");
+                    editTextPrice.setText("");
+                    editTextUnit.setText("");
+                    editTextQuantity.setText("");
+                    editTextDiscount.setText("");
+                    imageView.setImageResource(R.drawable.profile_picture);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
+
+        buttonUploadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(AddProductActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
+            }
+        });
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddProductActivity.this, ProductFragment.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private byte[] imageViewToByte(ImageView imageView) {
@@ -148,7 +151,7 @@ public class AddProduct extends AppCompatActivity {
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                img.setImageBitmap(bitmap);
+                imageView.setImageBitmap(bitmap);
 
             } catch (Exception e) {
                 e.printStackTrace();

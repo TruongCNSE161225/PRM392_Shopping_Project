@@ -31,7 +31,7 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
     @Override
     public DiscountedProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.discounted_row_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_discounted_row_items, parent, false);
         return new DiscountedProductViewHolder(view);
     }
 

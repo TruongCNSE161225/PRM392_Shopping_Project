@@ -2,7 +2,6 @@ package com.example.prm392_shopping_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.view.View;
 
 import com.example.prm392_shopping_project.adapter.ProductListAdapter;
 import com.example.prm392_shopping_project.database.ProductDB;
-import com.example.prm392_shopping_project.model.Category;
 import com.example.prm392_shopping_project.model.Product;
 
 import java.util.List;
@@ -48,7 +46,7 @@ public class AllProductActivity extends AppCompatActivity implements ProductList
     @Override
     public void onItemClick(View view, int position) {
         Product p = adapter.getProductAt(position);
-        Intent i = new Intent(getApplicationContext(), ProductDetails.class);
+        Intent i = new Intent(getApplicationContext(), ProductDetailsActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_product", p);
         i.putExtras(bundle);
