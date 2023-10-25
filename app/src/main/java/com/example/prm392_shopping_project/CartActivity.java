@@ -21,9 +21,9 @@ import org.greenrobot.eventbus.ThreadMode;
 
 public class CartActivity extends AppCompatActivity {
     CartAdapter cartAdapter;
-    RecyclerView rcCart;
-    TextView total_price;
-    Button btnBuy;
+    RecyclerView recyclerViewCart;
+    TextView textViewCartTotal;
+    Button buttonCartBuy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +35,19 @@ public class CartActivity extends AppCompatActivity {
             calTotalPrice();
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             cartAdapter = new CartAdapter(MainActivity.cartList, this);
-            rcCart.setLayoutManager(layoutManager);
-            rcCart.setAdapter(cartAdapter);
+            recyclerViewCart.setLayoutManager(layoutManager);
+            recyclerViewCart.setAdapter(cartAdapter);
         } else {
-            findViewById(R.id.cart_empty).setVisibility(View.VISIBLE);
+            findViewById(R.id.textViewCartEmpty).setVisibility(View.VISIBLE);
         }
 
-        btnBuy.setOnClickListener(new View.OnClickListener() {
+        buttonCartBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (MainActivity.cartList.size() == 0) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
                     builder.setTitle("Thông báo");
-                    builder.setMessage("Chưa có sản phẩm, hãy chọn ít nhất một sản phẩm.");
+                    builder.setMessage("Chưa có sản phẩm, hãy chọn ít nhất một sản phẩm");
                     builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -69,9 +69,9 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void init() {
-        rcCart = findViewById(R.id.cart_rv);
-        total_price = findViewById(R.id.total_price);
-        btnBuy = findViewById(R.id.btnmuahang);
+        recyclerViewCart = findViewById(R.id.recyclerViewCart);
+        textViewCartTotal = findViewById(R.id.textViewCartTotal);
+        buttonCartBuy = findViewById(R.id.buttonCartBuy);
 
 
     }
@@ -81,7 +81,7 @@ public class CartActivity extends AppCompatActivity {
         for (int i = 0; i < MainActivity.cartList.size(); i++) {
             total += MainActivity.cartList.get(i).getPrice() * MainActivity.cartList.get(i).getQuantity();
         }
-        total_price.setText(String.valueOf(total) + " $");
+        textViewCartTotal.setText(String.valueOf(total) + " $");
     }
 
     public int totalPrice() {

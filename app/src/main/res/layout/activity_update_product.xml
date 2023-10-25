@@ -7,11 +7,11 @@
     tools:context=".UpdateProductActivity">
 
     <TextView
-        android:id="@+id/tv_updateproduct"
+        android:id="@+id/textViewUpdateProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Update sản phẩm"
+        android:text="Cập nhật sản phẩm"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,186 +19,113 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edt_newname"
+        android:id="@+id/editTextUpdateProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="name"
+        android:hint="Tên sản phẩm"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_updateproduct"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateProduct"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_newdescription"
+        android:id="@+id/editTextUpdateProductDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="description"
+        android:hint="Nội dung"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newname"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductName"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_newprice"
+        android:id="@+id/editTextUpdateProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="price"
+        android:hint="Giá"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newdescription"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductDescription"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_newquantity"
+        android:id="@+id/editTextUpdateProductQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="quantity"
+        android:hint="Số lượng"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newprice"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductPrice"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/edt_newunit"
+        android:id="@+id/editTextUpdateProductUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="unit"
+        android:hint="Đơn vị"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newquantity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductQuantity"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ImageView
-        android:id="@+id/imv_newimg"
+        android:id="@+id/imageViewUpdateProduct"
         android:layout_width="140dp"
         android:layout_height="91dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newdiscount"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductDiscount"
         app:srcCompat="@android:drawable/ic_menu_report_image" />
 
     <Button
-        android:id="@+id/btn_updatePro"
+        android:id="@+id/buttonUpdateProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:onClick="onUpdate"
-        android:text="update"
+        android:text="Cập nhật"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="115dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="35dp"
-        android:text="Tên sản phẩm"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_updateproduct" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="40dp"
-        android:text="Mô tả"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="49dp"
-        android:text="Giá tiền"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="47dp"
-        android:text="Số lượng"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="46dp"
-        android:text="Đơn vị"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="46dp"
-        android:text="Giảm giá"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
     <EditText
-        android:id="@+id/edt_newdiscount"
+        android:id="@+id/editTextUpdateProductDiscount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="60dp"
         android:ems="10"
-        android:hint="discount"
+        android:hint="Chiết khấu"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newunit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductUnit"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/btn_uploadImg"
+        android:id="@+id/buttonUpdateProductUpdateImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="54dp"
-        android:text="Upload"
-        app:layout_constraintStart_toEndOf="@+id/imv_newimg"
-        app:layout_constraintTop_toBottomOf="@+id/edt_newdiscount" />
+        android:text="Cập nhật ảnh"
+        app:layout_constraintStart_toEndOf="@+id/imageViewUpdateProduct"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateProductDiscount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

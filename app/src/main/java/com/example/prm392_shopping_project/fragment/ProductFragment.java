@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_shopping_project.AddProductActivity;
 import com.example.prm392_shopping_project.R;
-import com.example.prm392_shopping_project.UDProductActivity;
+import com.example.prm392_shopping_project.ViewDetailProductActivity;
 import com.example.prm392_shopping_project.adapter.ProductAdapter;
 import com.example.prm392_shopping_project.database.ProductDB;
 import com.example.prm392_shopping_project.model.Product;
@@ -25,12 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductFragment extends Fragment implements ProductAdapter.ProductListener{
-    RecyclerView recyclerView;
-    ProductAdapter adapter;
+    RecyclerView recyclerViewFragmentProduct;
+    ProductAdapter productAdapter;
     ProductDB db;
-    List<Product> list;
-    FloatingActionButton fab;
-    SearchView searchView;
+    List<Product> productList;
+    FloatingActionButton floatingActionButtonFragmentProduct;
+    SearchView searchViewFragmentProduct;
     public ProductFragment() {
     }
 
@@ -42,26 +42,26 @@ public class ProductFragment extends Fragment implements ProductAdapter.ProductL
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db= new ProductDB((getContext()));
-        fab = view.findViewById(R.id.fab_Product);
-        recyclerView = view.findViewById(R.id.recycleViewProduct);
-        searchView = view.findViewById(R.id.sv_product);
+        floatingActionButtonFragmentProduct = view.findViewById(R.id.floatingActionButtonFragmentProduct);
+        recyclerViewFragmentProduct = view.findViewById(R.id.recyclerViewFragmentProduct);
+        searchViewFragmentProduct = view.findViewById(R.id.searchViewFragmentProduct);
 
-        list = new ArrayList<>();
-        list = db.getAll();
+        productList = new ArrayList<>();
+        productList = db.getAll();
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        floatingActionButtonFragmentProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddProductActivity.class);
                 startActivity(intent);
             }
         });
-        adapter = new ProductAdapter(list);
-        adapter.setProductListener(ProductFragment.this);
+        productAdapter = new ProductAdapter(productList);
+        productAdapter.setProductListener(ProductFragment.this);
         LinearLayoutManager manager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(adapter);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        recyclerViewFragmentProduct.setLayoutManager(manager);
+        recyclerViewFragmentProduct.setAdapter(productAdapter);
+        searchViewFragmentProduct.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
@@ -70,14 +70,14 @@ public class ProductFragment extends Fragment implements ProductAdapter.ProductL
             @Override
             public boolean onQueryTextChange(String s) {
                 List<Product> list = db.getByName(s);
-                adapter.setList(list);
+                productAdapter.setList(list);
                 return true;
             }
         });
     }
     public void onItemClick(View view, int position) {
-        Product product = adapter.getProductAt(position);
-        Intent intent= new Intent(getContext(), UDProductActivity.class);
+        Product product = productAdapter.getProductAt(position);
+        Intent intent= new Intent(getContext(), ViewDetailProductActivity.class);
         Bundle bundle=new Bundle();
         bundle.putSerializable("object_product",product);
         intent.putExtras(bundle);

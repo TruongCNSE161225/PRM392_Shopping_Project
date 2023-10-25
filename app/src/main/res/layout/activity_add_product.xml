@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextAddProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -32,7 +32,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextDescription"
+        android:id="@+id/editTextAddProductDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -41,11 +41,11 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddProductName"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextPrice"
+        android:id="@+id/editTextAddProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -54,47 +54,47 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescription"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddProductDescription"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextQuantity"
+        android:id="@+id/editTextAddProductQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Số lượng sản phẩm"
+        android:hint="Số lượng"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPrice"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddProductPrice"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextUnit"
+        android:id="@+id/editTextAddProductUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Đơn vị sản phẩm"
+        android:hint="Đơn vị"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddProductQuantity"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Spinner
-        android:id="@+id/spinnerCategory"
+        android:id="@+id/spinnerAddCategory"
         android:layout_width="241dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDiscount"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddProductDiscount"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextDiscount"
+        android:id="@+id/editTextAddProductDiscount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -103,11 +103,11 @@
         android:hint="Chiết khấu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUnit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddProductUnit"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/buttonAdd"
+        android:id="@+id/buttonAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -118,28 +118,28 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewAddProduct"
         android:layout_width="129dp"
         android:layout_height="126dp"
         android:layout_marginStart="92dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/profile_picture"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAddCategory"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/buttonUploadImage"
+        android:id="@+id/buttonAddProductUploadImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginTop="54dp"
         android:text="Thêm ảnh"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
+        app:layout_constraintStart_toEndOf="@+id/imageViewAddProduct"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerAddCategory" />
 
     <Button
-        android:id="@+id/buttonCancel"
+        android:id="@+id/buttonAddProductCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
@@ -149,6 +149,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
+        app:layout_constraintStart_toEndOf="@+id/buttonAddProduct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

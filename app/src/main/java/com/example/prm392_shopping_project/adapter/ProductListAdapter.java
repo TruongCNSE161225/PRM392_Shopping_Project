@@ -37,7 +37,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_recently_viewed_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_recently_viewed, parent, false);
         return new ProductViewHolder(view);
     }
 
@@ -45,9 +45,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product p = list.get(position);
         holder.name.setText(p.getName());
-        holder.price.setText(p.getPrice()+"");
+        holder.price.setText(p.getPrice() + "");
         holder.unit.setText(p.getUnit());
-        holder.discount.setText(p.getDiscount()+"");
+        holder.discount.setText(p.getDiscount() + "");
         byte[] Image = p.getImageUrl();
         Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
         holder.productImage.setImageBitmap(bitmap);
@@ -60,18 +60,18 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return list.size();
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView productImage;
         TextView name, price, unit, discount;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
-            productImage = itemView.findViewById(R.id.imv_imgRV);
-            name  = itemView.findViewById(R.id.tv_nameRV);
-            price = itemView.findViewById(R.id.tv_priceRV);
-            unit = itemView.findViewById(R.id.tv_unitRV);
-            discount = itemView.findViewById(R.id.tv_discountRV);
+            productImage = itemView.findViewById(R.id.imageViewRecentlyViewed);
+            name = itemView.findViewById(R.id.textViewRecentlyViewedName);
+            price = itemView.findViewById(R.id.textViewRecentlyViewedPrice);
+            unit = itemView.findViewById(R.id.textViewRecentlyViewedUnit);
+            discount = itemView.findViewById(R.id.textViewRecentlyViewedDiscount);
             itemView.setOnClickListener(this);
 
 //

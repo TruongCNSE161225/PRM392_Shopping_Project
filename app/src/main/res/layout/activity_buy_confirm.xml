@@ -7,7 +7,7 @@
     tools:context=".BuyConfirmActivity">
 
     <Toolbar
-        android:id="@+id/toobar"
+        android:id="@+id/toobarBuyConfirm"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/Light_blue"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/toobar">
+        app:layout_constraintTop_toBottomOf="@id/toobarBuyConfirm">
 
 
         <LinearLayout
@@ -58,7 +58,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editTextName"
+                android:id="@+id/editTextBuyConfirmName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -92,7 +92,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/editTextBuyConfirmEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -126,7 +126,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editTextPhone"
+                android:id="@+id/editTextBuyConfirmPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -161,7 +161,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editTextAddress"
+                android:id="@+id/editTextBuyConfirmAddress"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
@@ -173,7 +173,6 @@
                 android:inputType="textPostalAddress"
                 android:textColor="@color/black"
                 android:textSize="16dp" />
-
 
 
         </LinearLayout>
@@ -197,11 +196,10 @@
             android:orientation="vertical">
 
 
-
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textViewOrder"
+            android:id="@+id/textViewBuyConfirmOrder"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"

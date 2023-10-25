@@ -22,22 +22,22 @@ import java.util.List;
 
 public class AllCategoryActivity extends AppCompatActivity {
 
-    RecyclerView AllCategoryRecycler;
+    RecyclerView RecyclerViewAllCategory;
     AllCategoryAdapter allCategoryAdapter;
     List<Category> allCategoryModelList;
     CategoryDB categoryDB;
-    ImageView back;
+    ImageView imageViewAllCategoryBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_category);
 
-        AllCategoryRecycler = findViewById(R.id.allCategory);
-        back = findViewById(R.id.back);
+        RecyclerViewAllCategory = findViewById(R.id.recyclerViewAllCategory);
+        imageViewAllCategoryBack = findViewById(R.id.imageViewAllCategoryBack);
         categoryDB = new CategoryDB(this);
 
-        back.setOnClickListener(new View.OnClickListener() {
+        imageViewAllCategoryBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent back = new Intent(AllCategoryActivity.this, MainActivity.class);
@@ -66,11 +66,11 @@ public class AllCategoryActivity extends AppCompatActivity {
 
     private void setCategoryRecycler(List<Category> allcategoryModelList) {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 4);
-        AllCategoryRecycler.setLayoutManager(layoutManager);
-        AllCategoryRecycler.addItemDecoration(new GridSpacingItemDecoration(4, dpToPx(16), true));
-        AllCategoryRecycler.setItemAnimator(new DefaultItemAnimator());
+        RecyclerViewAllCategory.setLayoutManager(layoutManager);
+        RecyclerViewAllCategory.addItemDecoration(new GridSpacingItemDecoration(4, dpToPx(16), true));
+        RecyclerViewAllCategory.setItemAnimator(new DefaultItemAnimator());
         allCategoryAdapter = new AllCategoryAdapter(this, allcategoryModelList);
-        AllCategoryRecycler.setAdapter(allCategoryAdapter);
+        RecyclerViewAllCategory.setAdapter(allCategoryAdapter);
     }
 
 //    @Override

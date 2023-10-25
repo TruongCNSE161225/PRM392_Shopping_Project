@@ -22,18 +22,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.prm392_shopping_project.database.AccountDB;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.database.ProductDB;
 import com.example.prm392_shopping_project.model.Category;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
-public class UpdateDeleteCategoryActivity extends AppCompatActivity {
-    TextView tv_id;
-    EditText edt_name;
-    ImageView imgView;
-    Button btn_update, btn_dele, btn_uploadUpdate;
+public class UpdateCategoryActivity extends AppCompatActivity {
+    TextView textViewUpdateCategoryId;
+    EditText editTextUpdateCategoryName;
+    ImageView imageViewUpdateCategory;
+    Button buttonUpdateCategory, buttonDeleteCategory, buttonUpdateCategoryImage;
     CategoryDB db;
     ProductDB pdb;
     final int REQUEST_CODE_GALLERY = 999;
@@ -41,15 +43,15 @@ public class UpdateDeleteCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_delete_category);
+        setContentView(R.layout.activity_update_category);
         pdb = new ProductDB(this);
         db = new CategoryDB(this);
-        tv_id = findViewById(R.id.tv_id);
-        edt_name = findViewById(R.id.edt_nameupdate);
-        imgView = findViewById(R.id.imgViewupdate);
-        btn_update = findViewById(R.id.btn_update);
-        btn_dele = findViewById(R.id.btn_dele);
-        btn_uploadUpdate = findViewById(R.id.btn_uploadUpdate);
+        textViewUpdateCategoryId = findViewById(R.id.textViewUpdateCategoryId);
+        editTextUpdateCategoryName = findViewById(R.id.editTextUpdateCategoryName);
+        imageViewUpdateCategory = findViewById(R.id.imageViewUpdateCategory);
+        buttonUpdateCategory = findViewById(R.id.buttonUpdateCategory);
+        buttonDeleteCategory = findViewById(R.id.buttonDeleteCategory);
+        buttonUpdateCategoryImage = findViewById(R.id.buttonUpdateCategoryImage);
 
         Intent intent = getIntent();
         String name = (String) intent.getSerializableExtra("name");
@@ -57,46 +59,54 @@ public class UpdateDeleteCategoryActivity extends AppCompatActivity {
         byte[] img = (byte[]) intent.getSerializableExtra("image");
         Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
 
-        imgView.setImageBitmap(bitmap);
-        tv_id.setText(id + "");
-        edt_name.setText(name);
+        imageViewUpdateCategory.setImageBitmap(bitmap);
+        textViewUpdateCategoryId.setText(id + "");
+        editTextUpdateCategoryName.setText(name);
 
-        btn_uploadUpdate.setOnClickListener(new View.OnClickListener() {
+        buttonUpdateCategoryImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityCompat.requestPermissions(UpdateDeleteCategoryActivity.this,
+                ActivityCompat.requestPermissions(UpdateCategoryActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_GALLERY);
             }
         });
 
-        btn_update.setOnClickListener(new View.OnClickListener() {
+        buttonUpdateCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(tv_id.getText().toString());
-                String name = edt_name.getText().toString();
-                Category category = new Category(id, name, imageViewToByte(imgView));
+                int id = Integer.parseInt(textViewUpdateCategoryId.getText().toString());
+                String name = editTextUpdateCategoryName.getText().toString();
+                Category category = new Category(id, name, imageViewToByte(imageViewUpdateCategory));
                 db.update(category);
-
+                Toast.makeText(UpdateCategoryActivity.this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
+//                AccountDB db;
+//                String userPhone = phone.getText().toString();
+//                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//                intent.putExtra("isAdmin", isAdmin);
+//                intent.putExtra("username", userPhone);
+//                startActivity(intent);
+                Intent back = new Intent(UpdateCategoryActivity.this, HomeActivity.class);
+                startActivity(back);
             }
         });
 
-        btn_dele.setOnClickListener(new View.OnClickListener() {
+        buttonDeleteCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(tv_id.getText().toString());
+                int id = Integer.parseInt(textViewUpdateCategoryId.getText().toString());
                 if (pdb.getProductByCategoryId(id) == null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                    builder.setTitle("Notification");
-                    builder.setMessage("Are you sure remove this category?");
+                    builder.setTitle("Thông báo");
+                    builder.setMessage("Bạn xác nhận sẽ xoá loại sản phẩm này chứ?");
                     builder.setIcon(R.drawable.ic_delete);
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             db.delete(id);
 
                         }
                     });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -105,7 +115,7 @@ public class UpdateDeleteCategoryActivity extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
-                    Toast.makeText(UpdateDeleteCategoryActivity.this, "This category still exists product!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateCategoryActivity.this, "Không thể xoá vì đang có sản phẩm hiện hành", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -129,7 +139,7 @@ public class UpdateDeleteCategoryActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
             } else {
-                Toast.makeText(this, "Please grant this permission!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bạn chưa mở quyền truy cập", Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -145,7 +155,7 @@ public class UpdateDeleteCategoryActivity extends AppCompatActivity {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imgView.setImageBitmap(bitmap);
+                imageViewUpdateCategory.setImageBitmap(bitmap);
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,14 +26,14 @@ import java.io.InputStream;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    ImageView imgView, back, btn_cart, cart;
-    TextView proName, proPrice, proDesc, proQty, proUnit;
-
-    String name, price, desc, qty, unit;
+    ImageView imageViewProductDetailsImage, imageViewProductDetailsBack, imageViewProductDetailsCart;
+    TextView textViewProductDetailsName, textViewProductDetailsPrice, textViewProductDetailsDescription, textViewProductDetailsQuantity, textViewProductDetailsUnit;
+    Button buttonProductDetailsAddToCart;
+    String name, price, description, quantity, unit;
     int id;
-    double price_cart;
+    double priceCart;
     byte[] image;
-    NotificationBadge bage;
+    NotificationBadge notificationBadgeProductDetails;
     final int REQUEST_CODE_GALLERY = 999;
 
     @Override
@@ -50,35 +51,35 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         byte[] img = (byte[]) pro.getImageUrl();
         Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
-        imgView.setImageBitmap(bitmap);
+        imageViewProductDetailsImage.setImageBitmap(bitmap);
 
         id = pro.getId();
         name = pro.getName();
-        price = pro.getPrice() + " $";
-        price_cart = pro.getPrice();
-        desc = pro.getDescription();
-        qty = pro.getQuantity() + " ";
+        price = pro.getPrice() + " Đ";
+        priceCart = pro.getPrice();
+        description = pro.getDescription();
+        quantity = pro.getQuantity() + " ";
         unit = pro.getUnit();
 
-        proName.setText(name);
-        proPrice.setText(price);
-        proDesc.setText(desc);
-        proQty.setText(qty);
-        proUnit.setText(unit);
+        textViewProductDetailsName.setText(name);
+        textViewProductDetailsPrice.setText(price);
+        textViewProductDetailsDescription.setText(description);
+        textViewProductDetailsQuantity.setText(quantity);
+        textViewProductDetailsUnit.setText(unit);
 
 
         if (MainActivity.cartList.size() > 0) {
-            bage.setText(String.valueOf(MainActivity.cartList.size()));
+            notificationBadgeProductDetails.setText(String.valueOf(MainActivity.cartList.size()));
         }
 
-        cart.setOnClickListener(new View.OnClickListener() {
+        imageViewProductDetailsCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProductDetailsActivity.this, CartActivity.class);
                 startActivity(i);
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        imageViewProductDetailsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ProductDetailsActivity.this, MainActivity.class);
@@ -86,11 +87,11 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
-        btn_cart.setOnClickListener(new View.OnClickListener() {
+        buttonProductDetailsAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (MainActivity.cartList.size() > 0) {
-                    Cart productAdd = new Cart(id, name, price_cart, unit, 1, img);
+                    Cart productAdd = new Cart(id, name, priceCart, unit, 1, img);
                     boolean flag = false;
                     for (int i = 0; i < MainActivity.cartList.size(); i++) {
                         if (MainActivity.cartList.get(i).getName().equals(productAdd.getName())) {
@@ -102,9 +103,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
                         MainActivity.cartList.add(productAdd);
                     }
                 } else {
-                    MainActivity.cartList.add(new Cart(id, name, price_cart, unit, 1, img));
+                    MainActivity.cartList.add(new Cart(id, name, priceCart, unit, 1, img));
                 }
-                bage.setText(String.valueOf(MainActivity.cartList.size()));
+                notificationBadgeProductDetails.setText(String.valueOf(MainActivity.cartList.size()));
                 Intent i = new Intent(ProductDetailsActivity.this, CartActivity.class);
                 startActivity(i);
             }
@@ -112,16 +113,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     public void init() {
-        proName = findViewById(R.id.productName);
-        proDesc = findViewById(R.id.prodDesc);
-        proPrice = findViewById(R.id.prodPrice);
-        imgView = findViewById(R.id.big_image);
-        back = findViewById(R.id.back2);
-        proQty = findViewById(R.id.qty);
-        proUnit = findViewById(R.id.unit);
-        btn_cart = findViewById(R.id.btn_cart);
-        cart = findViewById(R.id.cart);
-        bage = findViewById(R.id.badge);
+        textViewProductDetailsName = findViewById(R.id.textViewProductDetailsName);
+        textViewProductDetailsDescription = findViewById(R.id.textViewProductDetailsDescription);
+        textViewProductDetailsPrice = findViewById(R.id.textViewProductDetailsPrice);
+        imageViewProductDetailsImage = findViewById(R.id.imageViewProductDetailsImage);
+        imageViewProductDetailsBack = findViewById(R.id.imageViewProductDetailsBack);
+        textViewProductDetailsQuantity = findViewById(R.id.textViewProductDetailsQuantity);
+        textViewProductDetailsUnit = findViewById(R.id.textViewProductDetailsUnit);
+        buttonProductDetailsAddToCart = findViewById(R.id.buttonProductDetailsAddToCart);
+        imageViewProductDetailsCart = findViewById(R.id.imageViewProductDetailsCart);
+        notificationBadgeProductDetails = findViewById(R.id.notificationBadgeProductDetails);
     }
 
     private byte[] imageViewToByte(ImageView imageView) {
@@ -141,7 +142,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
             } else {
-                Toast.makeText(this, "Please grant this permission!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bạn chưa mở quyền truy cập", Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -157,7 +158,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imgView.setImageBitmap(bitmap);
+                imageViewProductDetailsImage.setImageBitmap(bitmap);
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -5,17 +5,17 @@
     android:id="@+id/temp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateDeleteCategoryActivity"
+    tools:context=".UpdateCategoryActivity"
     tools:layout_editor_absoluteX="3dp"
     tools:layout_editor_absoluteY="66dp">
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewUpdateCategory"
         android:layout_width="match_parent"
         android:layout_height="24dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:text="Update Category"
+        android:text="Cập nhật loại sản phẩm"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,76 +28,76 @@
         android:layout_marginTop="3dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateCategory" />
 
 
     <TextView
-        android:id="@+id/tv_id"
+        android:id="@+id/textViewUpdateCategoryId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="53dp"
-        android:text="id"
+        android:text="ID loại sản phẩm"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateCategory" />
 
     <EditText
-        android:id="@+id/edt_nameupdate"
+        android:id="@+id/editTextUpdateCategoryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="71dp"
         android:ems="10"
+        android:hint="Tên loại sản phẩm"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="Name Category"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_id" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateCategoryId" />
 
     <ImageView
-        android:id="@+id/imgViewupdate"
+        android:id="@+id/imageViewUpdateCategory"
         android:layout_width="140dp"
         android:layout_height="139dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="75dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nameupdate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateCategoryName"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/btn_update"
+        android:id="@+id/buttonUpdateCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:backgroundTint="#4CAF50"
-        android:text="Update"
-        app:layout_constraintEnd_toStartOf="@+id/btn_dele"
+        android:text="Cập nhật"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDeleteCategory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewupdate" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewUpdateCategory" />
 
     <Button
-        android:id="@+id/btn_dele"
+        android:id="@+id/buttonDeleteCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:backgroundTint="#E34242"
-        android:text="Remove"
+        android:text="Xoá"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_update"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewupdate" />
+        app:layout_constraintStart_toEndOf="@+id/buttonUpdateCategory"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewUpdateCategory" />
 
     <Button
-        android:id="@+id/btn_uploadUpdate"
+        android:id="@+id/buttonUpdateCategoryImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="124dp"
-        android:text="UpLoad"
-        app:layout_constraintStart_toEndOf="@+id/imgViewupdate"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nameupdate" />
+        android:text="Cập nhật ảnh"
+        app:layout_constraintStart_toEndOf="@+id/imageViewUpdateCategory"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateCategoryName" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

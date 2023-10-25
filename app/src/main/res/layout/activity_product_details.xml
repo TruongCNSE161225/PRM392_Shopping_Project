@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/cart"
+            android:id="@+id/imageViewProductDetailsCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/ic_cart_black" />
 
         <com.nex3z.notificationbadge.NotificationBadge
-            android:id="@+id/badge"
+            android:id="@+id/notificationBadgeProductDetails"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_gravity="top|right"
@@ -33,7 +33,7 @@
 
 
     <ImageView
-        android:id="@+id/back2"
+        android:id="@+id/imageViewProductDetailsBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,140 +43,156 @@
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewProductDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans"
-        android:text="Product Details"
+        android:text="Thông tin sản phẩm"
         android:textColor="@android:color/background_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/back2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewProductDetailsBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/back2" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewProductDetailsBack" />
 
     <ImageView
-        android:id="@+id/big_image"
+        android:id="@+id/imageViewProductDetailsImage"
         android:layout_width="340dp"
         android:layout_height="340dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back2"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProductDetailsBack"
         app:srcCompat="@drawable/b1" />
 
     <TextView
-        android:id="@+id/productName"
+        android:id="@+id/textViewProductDetailsName"
         android:layout_width="229dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/open_sans_bold"
-        android:text="TextView"
+        android:text="Tên SP"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/big_image" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProductDetailsImage" />
 
     <TextView
-        android:id="@+id/prodDesc"
+        android:id="@+id/textViewProductDetailsDescription"
         android:layout_width="382dp"
         android:layout_height="38dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans_light"
-        android:text="prodDesc"
+        android:text="Nội dung sản phẩm"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/productName"
-        app:layout_constraintTop_toBottomOf="@+id/productName" />
+        app:layout_constraintStart_toStartOf="@+id/textViewProductDetailsName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProductDetailsName" />
 
     <Button
-        android:id="@+id/btn_buy"
+        android:id="@+id/buttonProductDetailsBuyNow"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/buy_now_bg"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Buy Now"
+        android:text="Mua ngay"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_cart"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonProductDetailsAddToCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_cart"
-        app:layout_constraintTop_toTopOf="@+id/btn_cart"
+        app:layout_constraintStart_toEndOf="@+id/buttonProductDetailsAddToCart"
+        app:layout_constraintTop_toTopOf="@+id/buttonProductDetailsAddToCart"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/btn_cart"
+    <Button
+        android:id="@+id/buttonProductDetailsAddToCart"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:text="Thêm vào giỏ hàng"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_buy"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProductDetailsBuyNow"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/cartbutton" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintVertical_bias="1.0" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/buttonProductDetailsAddToCart"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/buttonProductDetailsBuyNow"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView1"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        app:srcCompat="@drawable/cartbutton" />-->
 
     <TextView
-        android:id="@+id/prodPrice"
+        android:id="@+id/textViewProductDetailsPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans_bold"
-        android:text="TextView"
+        android:text="Giá"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/prodDesc"
-        app:layout_constraintTop_toBottomOf="@+id/prodDesc" />
+        app:layout_constraintStart_toStartOf="@+id/textViewProductDetailsDescription"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProductDetailsDescription" />
 
     <TextView
-        android:id="@+id/qty"
+        android:id="@+id/textViewProductDetailsQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans_light"
-        android:text="TextView"
+        android:text="SL"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/prodDesc" />
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProductDetailsDescription" />
 
     <TextView
-        android:id="@+id/unit"
+        android:id="@+id/textViewProductDetailsUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans_light"
-        android:text="TextView"
+        android:text="Đơn vị"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/prodDesc" />
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProductDetailsDescription" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginTop="16dp"
         android:text="/"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/prodPrice"
-        app:layout_constraintTop_toBottomOf="@+id/prodDesc" />
+        app:layout_constraintStart_toEndOf="@+id/textViewProductDetailsPrice"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProductDetailsDescription" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginTop="20dp"
         android:text="Số lượng: "
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/unit"
-        app:layout_constraintTop_toBottomOf="@+id/prodDesc" />
+        app:layout_constraintStart_toEndOf="@+id/textViewProductDetailsUnit"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProductDetailsDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

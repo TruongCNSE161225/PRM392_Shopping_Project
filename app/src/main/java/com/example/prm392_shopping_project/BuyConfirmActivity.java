@@ -21,8 +21,9 @@ import java.sql.Date;
 
 public class BuyConfirmActivity extends AppCompatActivity {
 
-    EditText editTextName, editTextPhone, editTextEmail, editTextAddress;
-    TextView textViewOrder;
+    EditText editTextBuyConfirmName, editTextBuyConfirmPhone,
+            editTextBuyConfirmEmail, editTextBuyConfirmAddress;
+    TextView textViewBuyConfirmOrder;
     CustomerDB customerDB;
     OrderDB orderDB;
     OrderDetailDB orderDetailDB;
@@ -37,17 +38,17 @@ public class BuyConfirmActivity extends AppCompatActivity {
         totalPrice = i.getStringExtra("totalPrice");
         init();
 
-        textViewOrder.setOnClickListener(new View.OnClickListener() {
+        textViewBuyConfirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = editTextName.getText().toString();
-                String phone = editTextPhone.getText().toString();
-                String email = editTextEmail.getText().toString();
-                String address = editTextAddress.getText().toString();
+                String name = editTextBuyConfirmName.getText().toString();
+                String phone = editTextBuyConfirmPhone.getText().toString();
+                String email = editTextBuyConfirmEmail.getText().toString();
+                String address = editTextBuyConfirmAddress.getText().toString();
                 if (name.equals("") || phone.equals("") || email.equals("") || address.equals("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
                     builder.setTitle("Thông báo");
-                    builder.setMessage("Xin vui lòng nhập đầy đủ thông tin.");
+                    builder.setMessage("Xin vui lòng nhập đầy đủ thông tin");
                     builder.show();
 
                 } else {
@@ -59,25 +60,26 @@ public class BuyConfirmActivity extends AppCompatActivity {
                     long saveOrder = orderDB.insert(new Order(cusId, date, Double.parseDouble(totalPrice)));
                     int orderId = orderDB.getMaxId();
                     for (int j = 0; j < MainActivity.cartList.size(); j++) {
-                        orderDetailDB.insert(new OrderDetail(orderId, MainActivity.cartList.get(j).getId(), MainActivity.cartList.get(j).getPrice(), MainActivity.cartList.get(j).getQuantity()));
+                        orderDetailDB.insert(new OrderDetail(orderId, MainActivity.cartList.get(j).getId(),
+                                MainActivity.cartList.get(j).getPrice(), MainActivity.cartList.get(j).getQuantity()));
                     }
-                    Toast.makeText(getApplicationContext(), "Đặt đơn hàng thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Quý khách đã đặt đơn hàng thành công, " +
+                            "chúng tôi sẽ liên hê lại với quý khách", Toast.LENGTH_SHORT).show();
                     MainActivity.cartList.clear();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 }
-
 
             }
         });
     }
 
     public void init() {
-        editTextName = findViewById(R.id.editTextName);
-        editTextPhone = findViewById(R.id.editTextPhone);
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextAddress = findViewById(R.id.editTextAddress);
-        textViewOrder = findViewById(R.id.textViewOrder);
+        editTextBuyConfirmName = findViewById(R.id.editTextBuyConfirmName);
+        editTextBuyConfirmPhone = findViewById(R.id.editTextBuyConfirmPhone);
+        editTextBuyConfirmEmail = findViewById(R.id.editTextBuyConfirmEmail);
+        editTextBuyConfirmAddress = findViewById(R.id.editTextBuyConfirmAddress);
+        textViewBuyConfirmOrder = findViewById(R.id.textViewBuyConfirmOrder);
         customerDB = new CustomerDB(this);
         orderDB = new OrderDB(this);
         orderDetailDB = new OrderDetailDB(this);

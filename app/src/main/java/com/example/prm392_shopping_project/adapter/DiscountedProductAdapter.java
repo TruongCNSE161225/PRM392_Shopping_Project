@@ -31,7 +31,7 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
     @Override
     public DiscountedProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_discounted_row_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_item_discounted_row, parent, false);
         return new DiscountedProductViewHolder(view);
     }
 
@@ -55,7 +55,7 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
         public DiscountedProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            discountImageView = itemView.findViewById(R.id.discountImage);
+            discountImageView = itemView.findViewById(R.id.imageViewDiscountRow);
 
         }
     }

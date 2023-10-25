@@ -38,14 +38,15 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
         this.allCategoriesListener = allCategoriesListener;
     }
 
-    public Category getCategoryAt (int position) {
+    public Category getCategoryAt(int position) {
         return categoryList.get(position);
     }
+
     @NonNull
     @Override
     public AllCategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_all_category_row_items, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_item_all_category_row, parent, false);
 
         return new AllCategoryViewHolder(view);
     }
@@ -61,8 +62,8 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
             @Override
             public void onClick(View view) {
 
-                Intent i=new Intent(context, AllProductActivity.class);
-                i.putExtra("id",category.getId());
+                Intent i = new Intent(context, AllProductActivity.class);
+                i.putExtra("id", category.getId());
                 context.startActivity(i);
             }
         });
@@ -73,14 +74,14 @@ public class AllCategoryAdapter extends RecyclerView.Adapter<AllCategoryAdapter.
         return categoryList.size();
     }
 
-    public class AllCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class AllCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView categoryImage;
 
         public AllCategoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            categoryImage = itemView.findViewById(R.id.categoryImage);
+            categoryImage = itemView.findViewById(R.id.imageViewAllCategoryRow);
             itemView.setOnClickListener(this);
         }
 

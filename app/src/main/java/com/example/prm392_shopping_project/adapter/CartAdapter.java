@@ -47,21 +47,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.name.setText(cartList.get(position).getName());
-        holder.price.setText(cartList.get(position).getPrice() + " $");
-        holder.quantity.setText(cartList.get(position).getQuantity() + "");
-        holder.total.setText(cartList.get(position).getQuantity() * cartList.get(position).getPrice() + " $");
+        holder.textViewCartProductName.setText(cartList.get(position).getName());
+        holder.textViewCartProductPrice.setText(cartList.get(position).getPrice() + " $");
+        holder.textViewCartQuantity.setText(cartList.get(position).getQuantity() + "");
+        holder.textViewCartTotal.setText(cartList.get(position).getQuantity() * cartList.get(position).getPrice() + " $");
         byte[] Image = cartList.get(position).getImg();
         Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
-        holder.img.setImageBitmap(bitmap);
+        holder.imageViewCartProduct.setImageBitmap(bitmap);
         holder.setListener(new IImageOnClick() {
             @Override
             public void onImageClick(View view, int pos, int value) {
                 if (value == 1) {
                     if (cartList.get(pos).getQuantity() > 1) {
                         cartList.get(pos).setQuantity(cartList.get(pos).getQuantity() - 1);
-                        holder.quantity.setText(cartList.get(pos).getQuantity() + "");
-                        holder.total.setText(cartList.get(pos).getQuantity() * cartList.get(pos).getPrice() + " $");
+                        holder.textViewCartQuantity.setText(cartList.get(pos).getQuantity() + "");
+                        holder.textViewCartTotal.setText(cartList.get(pos).getQuantity() * cartList.get(pos).getPrice() + " $");
                         EventBus.getDefault().postSticky(new EventCalculateTotalPrice());
 
                     } else if (cartList.get(pos).getQuantity() == 1) {
@@ -88,8 +88,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 } else if (value == 2) {
                     if (cartList.get(pos).getQuantity() < 10) {
                         cartList.get(pos).setQuantity(cartList.get(pos).getQuantity() + 1);
-                        holder.quantity.setText(cartList.get(pos).getQuantity() + "");
-                        holder.total.setText(cartList.get(pos).getQuantity() * cartList.get(pos).getPrice() + " $");
+                        holder.textViewCartQuantity.setText(cartList.get(pos).getQuantity() + "");
+                        holder.textViewCartTotal.setText(cartList.get(pos).getQuantity() * cartList.get(pos).getPrice() + " $");
                         EventBus.getDefault().postSticky(new EventCalculateTotalPrice());
                     }
 
@@ -106,8 +106,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView price, quantity, name, total;
-        ImageView minus, plus, img;
+        TextView textViewCartProductPrice, textViewCartQuantity, textViewCartProductName, textViewCartTotal;
+        ImageView imageViewCartMinus, imageViewCartPlus, imageViewCartProduct;
         IImageOnClick listener;
 
         public void setListener(IImageOnClick listener) {
@@ -117,22 +117,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.item_giohang_tensp);
-            quantity = itemView.findViewById(R.id.item_giohang_soluong);
-            total = itemView.findViewById(R.id.item_giohang_giasp2);
-            price = itemView.findViewById(R.id.item_giohang_gia);
-            img=itemView.findViewById(R.id.item_giohang_image);
-            minus = itemView.findViewById(R.id.item_giohang_tru);
-            plus = itemView.findViewById(R.id.item_giohang_cong);
-            plus.setOnClickListener(this);
-            minus.setOnClickListener(this);
+            textViewCartProductName = itemView.findViewById(R.id.textViewCartProductName);
+            textViewCartQuantity = itemView.findViewById(R.id.textViewCartQuantity);
+            textViewCartTotal = itemView.findViewById(R.id.textViewCartTotal);
+            textViewCartProductPrice = itemView.findViewById(R.id.textViewCartProductPrice);
+            imageViewCartProduct = itemView.findViewById(R.id.imageViewCartProduct);
+            imageViewCartMinus = itemView.findViewById(R.id.imageViewCartMinus);
+            imageViewCartPlus = itemView.findViewById(R.id.imageViewCartPlus);
+            imageViewCartPlus.setOnClickListener(this);
+            imageViewCartMinus.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            if (view == minus) {
+            if (view == imageViewCartMinus) {
                 listener.onImageClick(view, getAdapterPosition(), 1);
-            } else if (view == plus) {
+            } else if (view == imageViewCartPlus) {
                 listener.onImageClick(view, getAdapterPosition(), 2);
             }
         }

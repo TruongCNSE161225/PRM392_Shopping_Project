@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_shopping_project.AddCategoryActivity;
 import com.example.prm392_shopping_project.R;
-import com.example.prm392_shopping_project.UpdateDeleteCategoryActivity;
+import com.example.prm392_shopping_project.UpdateCategoryActivity;
 import com.example.prm392_shopping_project.adapter.CategoryCRUDAdapter;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.model.Category;
@@ -25,12 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.CategoryListener{
-    RecyclerView recyclerView;
-    CategoryCRUDAdapter adapter;
+    RecyclerView recyclerViewFragmentCategory;
+    CategoryCRUDAdapter categoryCRUDAdapter;
     CategoryDB db;
-    List<Category> list;
-    FloatingActionButton fab;
-    SearchView searchView;
+    List<Category> categoryList;
+    FloatingActionButton floatingActionButtonFragmentCategory;
+    SearchView searchViewFragmentCategory;
 
     public CategoryFragment() {
     }
@@ -45,26 +45,26 @@ public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.Ca
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db = new CategoryDB(getContext());
-        fab = view.findViewById(R.id.fab);
-        recyclerView = view.findViewById(R.id.recycleViewCategory);
-        searchView = view.findViewById(R.id.searchView);
+        floatingActionButtonFragmentCategory = view.findViewById(R.id.floatingActionButtonFragmentCategory);
+        recyclerViewFragmentCategory = view.findViewById(R.id.recyclerViewFragmentCategory);
+        searchViewFragmentCategory = view.findViewById(R.id.searchViewFragmentCategory);
 
-        list = new ArrayList<>();
-        list = db.getAll();
+        categoryList = new ArrayList<>();
+        categoryList = db.getAll();
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        floatingActionButtonFragmentCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddCategoryActivity.class);
                 startActivity(intent);
             }
         });
-        adapter = new CategoryCRUDAdapter(list);
-        adapter.setCategoryListener(CategoryFragment.this);
+        categoryCRUDAdapter = new CategoryCRUDAdapter(categoryList);
+        categoryCRUDAdapter.setCategoryListener(CategoryFragment.this);
         LinearLayoutManager manager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(adapter);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        recyclerViewFragmentCategory.setLayoutManager(manager);
+        recyclerViewFragmentCategory.setAdapter(categoryCRUDAdapter);
+        searchViewFragmentCategory.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
@@ -73,7 +73,7 @@ public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.Ca
             @Override
             public boolean onQueryTextChange(String s) {
                 List<Category> list = db.getByName(s);
-                adapter.setList(list);
+                categoryCRUDAdapter.setList(list);
                 return true;
             }
         });
@@ -81,8 +81,8 @@ public class CategoryFragment extends Fragment implements CategoryCRUDAdapter.Ca
 
     @Override
     public void onItemClick(View view, int position) {
-        Category category = adapter.getCategoryAt(position);
-        Intent intent = new Intent(getActivity(), UpdateDeleteCategoryActivity.class);
+        Category category = categoryCRUDAdapter.getCategoryAt(position);
+        Intent intent = new Intent(getActivity(), UpdateCategoryActivity.class);
         intent.putExtra("id", category.getId());
         intent.putExtra("name", category.getName());
         intent.putExtra("image", category.getImageUrl());

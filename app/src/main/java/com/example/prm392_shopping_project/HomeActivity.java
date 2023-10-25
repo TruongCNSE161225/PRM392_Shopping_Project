@@ -20,39 +20,39 @@ import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-    ImageView imageView;
-    NavigationView navigationView;
+    ImageView imageViewHomeMenu;
+    NavigationView navigationViewHome;
     NavController navController;
-    TextView tv, tvUsername;
+    TextView textViewHomeMenu, textViewHomeUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         drawerLayout = findViewById(R.id.drawable);
-        imageView = findViewById(R.id.imageMenu);
-        navigationView = findViewById(R.id.navigationView);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        imageViewHomeMenu = findViewById(R.id.imageViewHomeMenu);
+        navigationViewHome = findViewById(R.id.navigationViewHome);
+        imageViewHomeMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-        navigationView.setItemIconTintList(null);
-        navController = Navigation.findNavController(this, R.id.navHostFragment);
-        NavigationUI.setupWithNavController(navigationView, navController);
-        tv = findViewById(R.id.tv_Menu);
-        View headerView = navigationView.getHeaderView(0);
+        navigationViewHome.setItemIconTintList(null);
+        navController = Navigation.findNavController(this, R.id.navigationHostFragmentHome);
+        NavigationUI.setupWithNavController(navigationViewHome, navController);
+        textViewHomeMenu = findViewById(R.id.textViewHomeMenu);
+        View headerView = navigationViewHome.getHeaderView(0);
         // getIntent from LoginActivity
         Intent intent = getIntent();
         String username = (String) intent.getSerializableExtra("username");
-        tvUsername = headerView.findViewById(R.id.tv_username);
-        tvUsername.setText(username);
+        textViewHomeUsername = headerView.findViewById(R.id.textViewHomeUsername);
+        textViewHomeUsername.setText(username);
 
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
-                tv.setText(navDestination.getLabel());
+                textViewHomeMenu.setText(navDestination.getLabel());
             }
         });
     }

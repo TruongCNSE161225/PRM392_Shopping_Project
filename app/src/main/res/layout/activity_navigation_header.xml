@@ -8,7 +8,7 @@
     android:padding="20dp">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/imgProfile"
+        android:id="@+id/imageProfileHome"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:scaleType="centerCrop"
@@ -18,36 +18,36 @@
         app:riv_oval="true"/>
 
     <View
-        android:id="@+id/viewSupporter"
+        android:id="@+id/viewSupporterHome"
         android:layout_width="1dp"
         android:layout_height="1dp"
-        app:layout_constraintBottom_toBottomOf="@id/imgProfile"
-        app:layout_constraintEnd_toEndOf="@id/imgProfile"
-        app:layout_constraintStart_toStartOf="@id/imgProfile"
-        app:layout_constraintTop_toTopOf="@id/imgProfile" />
+        app:layout_constraintBottom_toBottomOf="@id/imageProfileHome"
+        app:layout_constraintEnd_toEndOf="@id/imageProfileHome"
+        app:layout_constraintStart_toStartOf="@id/imageProfileHome"
+        app:layout_constraintTop_toTopOf="@id/imageProfileHome" />
 
     <TextView
-        android:id="@+id/tv_username"
+        android:id="@+id/textViewHomeUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="UserName"
+        android:text="Tên người dùng"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/viewSupporter"
-        app:layout_constraintStart_toEndOf="@+id/imgProfile" />
+        app:layout_constraintBottom_toTopOf="@id/viewSupporterHome"
+        app:layout_constraintStart_toEndOf="@+id/imageProfileHome" />
 
     <TextView
-        android:id="@+id/verified"
+        android:id="@+id/textViewHomeVerified"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
-        android:text="verified"
+        android:text="Đã xác minh"
         android:textColor="@color/teal_200"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+        app:layout_constraintStart_toEndOf="@+id/imageProfileHome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHomeUsername" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

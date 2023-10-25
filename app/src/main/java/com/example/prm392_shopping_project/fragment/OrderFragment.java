@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderFragment extends Fragment {
-    OrderDB db ;
-    TextView tv_count, tv_amount, tv_order;
+    OrderDB db;
+    TextView textViewFragmentOrderCount, textViewFragmentOrderAmount, textViewFragmentOrder;
     List<Order> list;
 
     public OrderFragment() {
@@ -28,7 +28,7 @@ public class OrderFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_fragment_total_order, container, false);
+        return inflater.inflate(R.layout.activity_fragment_order, container, false);
     }
 
     @Override
@@ -36,21 +36,21 @@ public class OrderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         db = new OrderDB(getContext());
-        tv_amount = view.findViewById(R.id.tv_total_amount);
-        tv_order = view.findViewById(R.id.tv_order);
-        tv_count = view.findViewById(R.id.tv_count);
+        textViewFragmentOrderAmount = view.findViewById(R.id.textViewFragmentOrderRevenue);
+        textViewFragmentOrder = view.findViewById(R.id.textViewFragmentOrder);
+        textViewFragmentOrderCount = view.findViewById(R.id.textViewFragmentOrderCount);
 
         list = new ArrayList<>();
         list = db.getAll();
 
-        tv_count.setText("Total: " + list.size());
-        long total_amount = 0;
+        textViewFragmentOrderCount.setText("Tổng đơn: " + list.size());
+        long totalAmount = 0;
         String order = "";
-        for (int i = 0; i<list.size(); i++) {
-                total_amount += list.get(i).getTotalBill();
-                order += list.get(i);
+        for (int i = 0; i < list.size(); i++) {
+            totalAmount += list.get(i).getTotalBill();
+            order += list.get(i);
         }
-        tv_amount.setText("Total Amount: " + total_amount);
-        tv_order.setText(order);
+        textViewFragmentOrderAmount.setText("Doanh thu: " + totalAmount + " Đ");
+        textViewFragmentOrder.setText(order);
     }
 }

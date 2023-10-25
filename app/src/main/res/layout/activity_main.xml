@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewMainLogoStore"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="12dp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textViewMainNameStore"
+        app:layout_constraintTop_toTopOf="@+id/textViewMainNameStore"
         app:srcCompat="@drawable/aarlogo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewMainNameStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,13 +32,13 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="1sp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="1sp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/cart_main"
+            android:id="@+id/imageViewMainCart"
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
@@ -47,7 +48,7 @@
             app:srcCompat="@drawable/ic_cart_black" />
 
         <com.nex3z.notificationbadge.NotificationBadge
-            android:id="@+id/badge_main"
+            android:id="@+id/notificationBadgeMainCart"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_gravity="top|right"
@@ -56,17 +57,17 @@
 
 
     <ImageView
-        android:id="@+id/setting_main"
+        android:id="@+id/imageViewMainSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMainNameStore"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textViewMainNameStore"
         app:srcCompat="@drawable/ic_account_settings" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewMainDescriptionStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -78,20 +79,20 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainNameStore" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/discountedRecycler"
+        android:id="@+id/recyclerViewMainDiscount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -101,10 +102,10 @@
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainDescriptionStore" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -114,31 +115,31 @@
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discountedRecycler" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewMainDiscount" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRecycler"
+        android:id="@+id/recyclerViewMainCategory"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/allCategoryImage"
+        android:id="@+id/textViewMainAllCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/open_sans_semibold"
         android:text="Xem thêm"
         android:textColor="#448AFF"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -148,19 +149,19 @@
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryRecycler" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewMainCategory" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recently_item"
+        android:id="@+id/recyclerViewMainItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/tv_product"
+        android:id="@+id/textViewMainProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -169,6 +170,6 @@
         android:text="Xem thêm"
         android:textColor="#448AFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainDescriptionStore" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

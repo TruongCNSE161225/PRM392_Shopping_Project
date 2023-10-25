@@ -15,41 +15,42 @@ import android.widget.TextView;
 import com.example.prm392_shopping_project.database.ProductDB;
 import com.example.prm392_shopping_project.model.Product;
 
-public class UDProductActivity extends AppCompatActivity {
-    TextView tv_name, tv_description, tv_price, tv_unit, tv_quantity;
-    ImageView imgView;
-    ProductDB pdb;
+public class ViewDetailProductActivity extends AppCompatActivity {
+    TextView textViewDetailProductName, textViewDetailProductDescription,
+            textViewDetailProductPrice, textViewDetailProductUnit, textViewDetailProductQuantity;
+    ImageView imageViewDetailProduct;
+    ProductDB db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_udproduct);
-        pdb = new ProductDB(this);
+        setContentView(R.layout.activity_view_detail_product);
+        db = new ProductDB(this);
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) return;
         Product pro = (Product) bundle.get("object_product");
-        tv_name = findViewById(R.id.tv_nameProduct);
-        tv_description = findViewById(R.id.tv_descriptionPro);
-        tv_price = findViewById(R.id.tv_pricePro);
-        tv_unit = findViewById(R.id.tv_unitPro);
-        tv_quantity = findViewById(R.id.tv_quantityPro);
-        imgView = findViewById(R.id.img_avatar);
+        textViewDetailProductName = findViewById(R.id.textViewDetailProductName);
+        textViewDetailProductDescription = findViewById(R.id.textViewDetailProductDescription);
+        textViewDetailProductPrice = findViewById(R.id.textViewDetailProductPrice);
+        textViewDetailProductUnit = findViewById(R.id.textViewDetailProductUnit);
+        textViewDetailProductQuantity = findViewById(R.id.textViewDetailProductQuantity);
+        imageViewDetailProduct = findViewById(R.id.imageViewDetailProduct);
 
-        tv_name.setText(pro.getName());
-        tv_description.setText(pro.getDescription());
-        tv_price.setText(String.valueOf(pro.getPrice()));
-        tv_unit.setText(pro.getUnit());
-        tv_quantity.setText(String.valueOf(pro.getQuantity()));
+        textViewDetailProductName.setText(pro.getName());
+        textViewDetailProductDescription.setText(pro.getDescription());
+        textViewDetailProductPrice.setText(String.valueOf(pro.getPrice()));
+        textViewDetailProductUnit.setText(pro.getUnit());
+        textViewDetailProductQuantity.setText(String.valueOf(pro.getQuantity()));
         byte[] img = (byte[]) pro.getImageUrl();
         Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
-        imgView.setImageBitmap(bitmap);
+        imageViewDetailProduct.setImageBitmap(bitmap);
     }
 
     public void onUpdateProduct(View view) {
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) return;
         Product pro = (Product) bundle.get("object_product");
-        Intent intent = new Intent(UDProductActivity.this, UpdateProductActivity.class);
+        Intent intent = new Intent(ViewDetailProductActivity.this, UpdateProductActivity.class);
         bundle.putSerializable("object_product", pro);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -60,18 +61,18 @@ public class UDProductActivity extends AppCompatActivity {
         if (bundle == null) return;
         Product pro = (Product) bundle.get("object_product");
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        builder.setTitle("Notification");
-        builder.setMessage("Are you sure remove this product?");
+        builder.setTitle("Thông báo");
+        builder.setMessage("Bạn xác nhận muốn xoá sản phẩm này chứ?");
         builder.setIcon(R.drawable.ic_delete);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                pdb.delete(pro.getId());
+                db.delete(pro.getId());
                 Intent intent = new Intent(getApplicationContext(), ProductDB.class);
                 startActivity(intent);
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

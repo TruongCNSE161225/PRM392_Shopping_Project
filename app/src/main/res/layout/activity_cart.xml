@@ -8,46 +8,45 @@
 
 
     <TextView
-        android:id="@+id/cart_empty"
+        android:id="@+id/textViewCartEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Giỏ hàng trống"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Toolbar
-        android:id="@+id/toobar"
+        android:id="@+id/toolbarCart"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#36DD07"
+        android:background="@color/Light_blue"
         android:title="Giỏ hàng" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_rv"
+        android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        app:layout_constraintBottom_toTopOf="@id/line_total"
-        app:layout_constraintTop_toBottomOf="@+id/toobar" />
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutCartTotal"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCart" />
 
 
     <LinearLayout
-        android:id="@+id/line_total"
+        android:id="@+id/linearLayoutCartTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
-        app:layout_constraintBottom_toTopOf="@id/btnmuahang">
+        app:layout_constraintBottom_toTopOf="@id/buttonCartBuy">
 
         <TextView
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
@@ -57,25 +56,24 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/total_price"
+            android:id="@+id/textViewCartTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="0000000"
+            android:text="0"
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnmuahang"
-        android:layout_marginBottom="15dp"
+        android:id="@+id/buttonCartBuy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:text="Mua hàng"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

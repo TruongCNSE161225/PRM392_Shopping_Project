@@ -20,12 +20,12 @@ import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductHolder> {
 
-    List<Product> products;
+    List<Product> listProduct;
     private Context context;
     private ProductListener ProductListener;
 
-    public ProductAdapter( Context context, List<Product> products) {
-        this.products = products;
+    public ProductAdapter(Context context, List<Product> products) {
+        this.listProduct = products;
         this.context = context;
     }
 
@@ -36,19 +36,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     public ProductListener getProductListener() {
         return ProductListener;
     }
-    public Product getProductAt (int position) {
-        return products.get(position);
+
+    public Product getProductAt(int position) {
+        return listProduct.get(position);
     }
 
     public void setProductListener(ProductAdapter.ProductListener productListener) {
         ProductListener = productListener;
     }
+
     public void setList(List<Product> list) {
-        this.products= list;
+        this.listProduct = list;
         notifyDataSetChanged(); // refesh
     }
+
     public ProductAdapter(List<Product> products) {
-        this.products = products;
+        this.listProduct = products;
     }
 
     @NonNull
@@ -61,38 +64,38 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     @Override
     public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
-        final Product p= products.get(position);
+        final Product p = listProduct.get(position);
         byte[] Image = p.getImageUrl();
         Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
-        holder.img.setImageBitmap(bitmap);
-        holder.tv_name.setText(p.getName());
-        holder.tv_description.setText(p.getDescription());
-        holder.tv_price.setText(String.valueOf(p.getPrice()));
-        holder.tv_unit.setText(p.getUnit());
-        holder.tv_quantity.setText(String.valueOf(p.getQuantity()));
-        holder.tv_discount.setText(String.valueOf(p.getDiscount()));
-
+        holder.imageViewProduct.setImageBitmap(bitmap);
+        holder.textViewProductName.setText(p.getName());
+        holder.textViewProductDescription.setText(p.getDescription());
+        holder.textViewProductPrice.setText(String.valueOf(p.getPrice()));
+        holder.textViewProductUnit.setText(p.getUnit());
+        holder.textViewProductQuantity.setText(String.valueOf(p.getQuantity()));
+        holder.textViewProductDiscount.setText(String.valueOf(p.getDiscount()));
     }
+
     @Override
     public int getItemCount() {
-        return products.size();
+        return listProduct.size();
     }
 
-    public class ProductHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView img;
-        TextView tv_name, tv_description, tv_price, tv_unit, tv_quantity, tv_discount;
-        CardView layoutItem;
+    public class ProductHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        ImageView imageViewProduct;
+        TextView textViewProductName, textViewProductDescription, textViewProductPrice, textViewProductUnit, textViewProductQuantity, textViewProductDiscount;
+        CardView cardViewProductLayout;
 
         public ProductHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.imv_imgRV);
-            tv_name = itemView.findViewById(R.id.tv_name);
-            tv_description = itemView.findViewById(R.id.tv_description);
-            tv_price = itemView.findViewById(R.id.tv_price);
-            tv_quantity = itemView.findViewById(R.id.tv_quantity);
-            tv_unit = itemView.findViewById(R.id.tv_unit);
-            tv_discount = itemView.findViewById(R.id.tv_discount);
-            layoutItem = itemView.findViewById(R.id.layout_itemRV);
+            imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
+            textViewProductName = itemView.findViewById(R.id.textViewProductName);
+            textViewProductDescription = itemView.findViewById(R.id.textViewProductDescription);
+            textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
+            textViewProductQuantity = itemView.findViewById(R.id.textViewProductQuantity);
+            textViewProductUnit = itemView.findViewById(R.id.textViewProductUnit);
+            textViewProductDiscount = itemView.findViewById(R.id.textViewProductDiscount);
+            cardViewProductLayout = itemView.findViewById(R.id.cardViewProductLayout);
             itemView.setOnClickListener(this);
         }
 
@@ -104,6 +107,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         }
 
     }
+
     public interface ProductListener {
         void onItemClick(View view, int position);
 

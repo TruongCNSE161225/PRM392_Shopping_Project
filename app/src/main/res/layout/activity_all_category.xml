@@ -8,19 +8,19 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewAllCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lựa chọn loại sản phẩm"
         android:fontFamily="@font/open_sans"
         android:textColor="@android:color/background_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewAllCategoryBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/back" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewAllCategoryBack" />
 
     <ImageView
-        android:id="@+id/back"
+        android:id="@+id/imageViewAllCategoryBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,23 +30,23 @@
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/allCategory"
+        android:id="@+id/recyclerViewAllCategory"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAllCategoryBack"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewAllCategoryCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewAllCategory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textViewAllCategory"
         app:srcCompat="@drawable/ic_cart_black" />
 </androidx.constraintlayout.widget.ConstraintLayout>

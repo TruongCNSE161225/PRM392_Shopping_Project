@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/categoryImage"
+        android:id="@+id/imageViewAllCategoryRow"
         android:layout_width="94dp"
         android:layout_height="130dp"
         app:layout_constraintStart_toStartOf="parent"

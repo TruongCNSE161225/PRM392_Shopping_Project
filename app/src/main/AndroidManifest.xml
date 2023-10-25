@@ -24,7 +24,7 @@
             android:name=".AllProductActivity"
             android:exported="false" />
         <activity
-            android:name=".UpdateDeleteCategoryActivity"
+            android:name=".UpdateCategoryActivity"
             android:exported="false" />
         <activity
             android:name=".AddCategoryActivity"
@@ -36,7 +36,7 @@
             android:name=".AddProductActivity"
             android:exported="false" />
         <activity
-            android:name=".UDProductActivity"
+            android:name=".ViewDetailProductActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

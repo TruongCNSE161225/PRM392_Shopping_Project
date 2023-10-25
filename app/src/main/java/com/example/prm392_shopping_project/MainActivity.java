@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     AccountDB accountDB = new AccountDB(this);
     ProductDB productDB = new ProductDB(this);
     CategoryDB categoryDB = new CategoryDB(this);
-    RecyclerView discountRecyclerView, categoryRecyclerView, recentlyViewedRecycler;
+    RecyclerView recyclerViewMainDiscount, recyclerViewMainCategory, recyclerViewMainItem;
     DiscountedProductAdapter discountedProductAdapter;
     List<Product> discountedProductsList;
 
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
     RecentlyViewedAdapter recentlyViewedAdapter;
     List<Product> recentlyViewedList;
 
-    TextView allCategory, tv_product;
-    ImageView cart, setting;
-    NotificationBadge bage;
+    TextView textViewMainAllCategory, textViewMainProduct;
+    ImageView imageViewMainCart, imageViewMainSetting;
+    NotificationBadge notificationBadgeMainCart;
 
     public static List<Cart> cartList;
 
@@ -56,14 +56,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         _context = new AppDatabaseContext(this);
-        discountRecyclerView = findViewById(R.id.discountedRecycler);
-        categoryRecyclerView = findViewById(R.id.categoryRecycler);
-        allCategory = findViewById(R.id.allCategoryImage);
-        tv_product = findViewById(R.id.tv_product);
-        recentlyViewedRecycler = findViewById(R.id.recently_item);
-        cart = findViewById(R.id.cart_main);
-        setting = findViewById(R.id.setting_main);
-        bage = findViewById(R.id.badge_main);
+        recyclerViewMainDiscount = findViewById(R.id.recyclerViewMainDiscount);
+        recyclerViewMainCategory = findViewById(R.id.recyclerViewMainCategory);
+        textViewMainAllCategory = findViewById(R.id.textViewMainAllCategory);
+        textViewMainProduct = findViewById(R.id.textViewMainProduct);
+        recyclerViewMainItem = findViewById(R.id.recyclerViewMainItem);
+        imageViewMainCart = findViewById(R.id.imageViewMainCart);
+        imageViewMainSetting = findViewById(R.id.imageViewMainSetting);
+        notificationBadgeMainCart = findViewById(R.id.notificationBadgeMainCart);
         if (cartList != null) {
 //            bage.setText(String.valueOf(cartList.size()));
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        tv_product.setOnClickListener(new View.OnClickListener() {
+        textViewMainProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, AllProductActivity.class);
@@ -81,21 +81,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        allCategory.setOnClickListener(new View.OnClickListener() {
+        textViewMainAllCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, AllCategoryActivity.class);
                 startActivity(i);
             }
         });
-        cart.setOnClickListener(new View.OnClickListener() {
+        imageViewMainCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, CartActivity.class);
                 startActivity(i);
             }
         });
-        setting.setOnClickListener(new View.OnClickListener() {
+        imageViewMainSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
@@ -135,24 +135,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void setDiscountedRecycler(List<Product> dataList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        discountRecyclerView.setLayoutManager(layoutManager);
+        recyclerViewMainDiscount.setLayoutManager(layoutManager);
         discountedProductAdapter = new DiscountedProductAdapter(this, dataList);
-        discountRecyclerView.setAdapter(discountedProductAdapter);
+        recyclerViewMainDiscount.setAdapter(discountedProductAdapter);
     }
 
 
     private void setCategoryRecycler(List<Category> categoryDataList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        categoryRecyclerView.setLayoutManager(layoutManager);
+        recyclerViewMainCategory.setLayoutManager(layoutManager);
         categoryAdapter = new CategoryAdapter(this, categoryDataList);
-        categoryRecyclerView.setAdapter(categoryAdapter);
+        recyclerViewMainCategory.setAdapter(categoryAdapter);
     }
 
     private void setRecentlyViewedRecycler(List<Product> recentlyViewedDataList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recentlyViewedRecycler.setLayoutManager(layoutManager);
+        recyclerViewMainItem.setLayoutManager(layoutManager);
         recentlyViewedAdapter = new RecentlyViewedAdapter(this, recentlyViewedDataList);
-        recentlyViewedRecycler.setAdapter(recentlyViewedAdapter);
+        recyclerViewMainItem.setAdapter(recentlyViewedAdapter);
     }
 
 

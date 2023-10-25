@@ -27,11 +27,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 public class UpdateProductActivity extends AppCompatActivity {
-    EditText edt_name, edt_description, edt_price, edt_unit, edt_quantity, edt_discount;
-    ImageView img_imv;
-    SQLiteDatabase db;
-    ProductDB productDB;
-    Button btn_upload;
+    EditText editTextUpdateProductName, editTextUpdateProductDescription, editTextUpdateProductPrice,
+            editTextUpdateProductUnit, editTextUpdateProductQuantity, editTextUpdateProductDiscount;
+    ImageView imageViewUpdateProduct;
+    ProductDB db;
+    Button buttonUpdateProduct, buttonUpdateProductUpdateImage;
     final int REQUEST_CODE_GALLERY = 999;
 
     @Override
@@ -41,25 +41,26 @@ public class UpdateProductActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) return;
         Product pro = (Product) bundle.get("object_product");
-        edt_name = findViewById(R.id.edt_newname);
-        edt_description = findViewById(R.id.edt_newdescription);
-        edt_price = findViewById(R.id.edt_newprice);
-        edt_unit = findViewById(R.id.edt_newunit);
-        edt_quantity = findViewById(R.id.edt_newquantity);
-        edt_discount = findViewById(R.id.edt_newdiscount);
-        img_imv = findViewById(R.id.imv_newimg);
-        btn_upload = findViewById(R.id.btn_uploadImg);
+        editTextUpdateProductName = findViewById(R.id.editTextUpdateProductName);
+        editTextUpdateProductDescription = findViewById(R.id.editTextUpdateProductDescription);
+        editTextUpdateProductPrice = findViewById(R.id.editTextUpdateProductPrice);
+        editTextUpdateProductUnit = findViewById(R.id.editTextUpdateProductUnit);
+        editTextUpdateProductQuantity = findViewById(R.id.editTextUpdateProductQuantity);
+        editTextUpdateProductDiscount = findViewById(R.id.editTextUpdateProductDiscount);
+        imageViewUpdateProduct = findViewById(R.id.imageViewUpdateProduct);
+        buttonUpdateProduct = findViewById(R.id.buttonUpdateProduct);
+        buttonUpdateProductUpdateImage = findViewById(R.id.buttonUpdateProductUpdateImage);
 
-        edt_name.setText(pro.getName());
-        edt_description.setText(pro.getDescription());
-        edt_price.setText(String.valueOf(pro.getPrice()));
-        edt_unit.setText(pro.getUnit());
-        edt_quantity.setText(String.valueOf(pro.getQuantity()));
-        edt_discount.setText(String.valueOf(pro.getDiscount()));
+        editTextUpdateProductName.setText(pro.getName());
+        editTextUpdateProductDescription.setText(pro.getDescription());
+        editTextUpdateProductPrice.setText(String.valueOf(pro.getPrice()));
+        editTextUpdateProductUnit.setText(pro.getUnit());
+        editTextUpdateProductQuantity.setText(String.valueOf(pro.getQuantity()));
+        editTextUpdateProductDiscount.setText(String.valueOf(pro.getDiscount()));
         byte[] img = (byte[]) pro.getImageUrl();
         Bitmap bitmap = BitmapFactory.decodeByteArray(img, 0, img.length);
-        img_imv.setImageBitmap(bitmap);
-        btn_upload.setOnClickListener(new View.OnClickListener() {
+        imageViewUpdateProduct.setImageBitmap(bitmap);
+        buttonUpdateProductUpdateImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(UpdateProductActivity.this,
@@ -74,20 +75,22 @@ public class UpdateProductActivity extends AppCompatActivity {
         if (bundle == null) return;
         Product pro = (Product) bundle.get("object_product");
 
-        pro.setName(edt_name.getText().toString());
-        pro.setDescription(edt_description.getText().toString());
-        pro.setPrice(Double.valueOf(edt_price.getText().toString()));
-        pro.setUnit(edt_unit.getText().toString());
-        pro.setQuantity(Integer.parseInt(edt_quantity.getText().toString()));
-        pro.setDiscount(Integer.parseInt(edt_discount.getText().toString()));
+        pro.setName(editTextUpdateProductName.getText().toString());
+        pro.setDescription(editTextUpdateProductDescription.getText().toString());
+        pro.setPrice(Double.valueOf(editTextUpdateProductPrice.getText().toString()));
+        pro.setUnit(editTextUpdateProductUnit.getText().toString());
+        pro.setQuantity(Integer.parseInt(editTextUpdateProductQuantity.getText().toString()));
+        pro.setDiscount(Integer.parseInt(editTextUpdateProductDiscount.getText().toString()));
 
-        byte[] imgUrl = imageViewToByte(img_imv);
-        byte[] bigImgUrl = imageViewToByte(img_imv);
+        byte[] imgUrl = imageViewToByte(imageViewUpdateProduct);
+        byte[] bigImgUrl = imageViewToByte(imageViewUpdateProduct);
         pro.setImageUrl(imgUrl);
 
-        productDB = new ProductDB(this);
-        productDB.update(pro);
-        Toast.makeText(UpdateProductActivity.this, "Update thanh cong", Toast.LENGTH_LONG).show();
+        db = new ProductDB(this);
+        db.update(pro);
+        Toast.makeText(UpdateProductActivity.this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
+        Intent back = new Intent(UpdateProductActivity.this, HomeActivity.class);
+        startActivity(back);
     }
 
     private byte[] imageViewToByte(ImageView imageView) {
@@ -107,7 +110,7 @@ public class UpdateProductActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
             } else {
-                Toast.makeText(this, "Please grant this permission!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bạn chưa mở quyền truy cập", Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -123,7 +126,7 @@ public class UpdateProductActivity extends AppCompatActivity {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                img_imv.setImageBitmap(bitmap);
+                imageViewUpdateProduct.setImageBitmap(bitmap);
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -27,9 +27,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 public class AddCategoryActivity extends AppCompatActivity {
-    EditText editTextName;
-    ImageView imageView;
-    Button buttonAdd, buttonUploadImage, buttonCancel;
+    EditText editTextAddCategoryName;
+    ImageView imageViewAddCategory;
+    Button buttonAddCategory, buttonAddCategoryUploadImage, buttonAddCategoryCancel;
     CategoryDB db;
     final int REQUEST_CODE_GALLERY = 999;
 
@@ -39,13 +39,13 @@ public class AddCategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_category);
 
         db = new CategoryDB(this);
-        editTextName = findViewById(R.id.editTextName);
-        imageView = findViewById(R.id.imageView);
-        buttonAdd = findViewById(R.id.buttonAdd);
-        buttonUploadImage = findViewById(R.id.buttonUploadImage);
-        buttonCancel = findViewById(R.id.buttonCancel);
+        editTextAddCategoryName = findViewById(R.id.editTextAddCategoryName);
+        imageViewAddCategory = findViewById(R.id.imageViewAddCategory);
+        buttonAddCategory = findViewById(R.id.buttonAddCategory);
+        buttonAddCategoryUploadImage = findViewById(R.id.buttonAddCategoryUploadImage);
+        buttonAddCategoryCancel = findViewById(R.id.buttonAddCategoryCancel);
 
-        buttonUploadImage.setOnClickListener(new View.OnClickListener() {
+        buttonAddCategoryUploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(AddCategoryActivity.this,
@@ -53,24 +53,24 @@ public class AddCategoryActivity extends AppCompatActivity {
             }
         });
 
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
+        buttonAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
                     db.insert(new Category(
-                            editTextName.getText().toString().trim(),
-                            imageViewToByte(imageView))
+                            editTextAddCategoryName.getText().toString().trim(),
+                            imageViewToByte(imageViewAddCategory))
                     );
                     Toast.makeText(AddCategoryActivity.this, "Thêm loại sản phẩm thành công", Toast.LENGTH_SHORT).show();
-                    editTextName.setText("");
-                    imageView.setImageResource(R.drawable.profile_picture);
+                    editTextAddCategoryName.setText("");
+                    imageViewAddCategory.setImageResource(R.drawable.profile_picture);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
 
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
+        buttonAddCategoryCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddCategoryActivity.this, CategoryFragment.class);
@@ -96,7 +96,7 @@ public class AddCategoryActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
             } else {
-                Toast.makeText(this, "Ban chua mo quyen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bạn chưa mở quyền truy cập", Toast.LENGTH_SHORT).show();
             }
             return;
         }
@@ -112,7 +112,7 @@ public class AddCategoryActivity extends AppCompatActivity {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imageView.setImageBitmap(bitmap);
+                imageViewAddCategory.setImageBitmap(bitmap);
 
             } catch (Exception e) {
                 e.printStackTrace();

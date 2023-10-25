@@ -10,10 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <ImageView
-            android:id="@+id/item_giohang_image"
+            android:id="@+id/imageViewCartProduct"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop" />
@@ -24,63 +24,68 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/item_giohang_tensp"
+                android:id="@+id/textViewCartProductName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Ten san pham"
+                android:text="Tên sản phẩm"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:weightSum="18"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="18">
 
                 <TextView
-                    android:layout_weight="3"
-                    android:id="@+id/item_giohang_gia"
+                    android:id="@+id/textViewCartProductPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="15000"
+                    android:layout_weight="3"
+                    android:text="0"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="15sp" />
+
                 <ImageView
-                    android:id="@+id/item_giohang_tru"
+                    android:id="@+id/imageViewCartMinus"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_baseline_remove_24" />
+
                 <TextView
-                    android:id="@+id/item_giohang_soluong"
+                    android:id="@+id/textViewCartQuantity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
                     android:layout_weight="3"
-                    android:text="1"
                     android:gravity="center"
+                    android:text="1"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
+
                 <ImageView
-                    android:id="@+id/item_giohang_cong"
+                    android:id="@+id/imageViewCartPlus"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_baseline_add_24" />
+
                 <ImageView
-                    android:id="@+id/item_giohang_bang"
+                    android:id="@+id/imageViewCartEquals"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2"
                     android:src="@drawable/ic_baseline_drag_handle_24" />
+
                 <TextView
-                    android:id="@+id/item_giohang_giasp2"
+                    android:id="@+id/textViewCartTotal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="250000 đ"
+                    android:text="0đ"
                     android:textStyle="bold" />
             </LinearLayout>
 

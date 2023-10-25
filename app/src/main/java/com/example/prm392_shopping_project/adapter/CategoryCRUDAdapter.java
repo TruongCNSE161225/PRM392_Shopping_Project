@@ -16,7 +16,7 @@ import com.example.prm392_shopping_project.model.Category;
 
 import java.util.List;
 
-public class CategoryCRUDAdapter extends RecyclerView.Adapter<CategoryCRUDAdapter.CategoryViewHolder>{
+public class CategoryCRUDAdapter extends RecyclerView.Adapter<CategoryCRUDAdapter.CategoryViewHolder> {
     private List<Category> list;
     private CategoryListener categoryListener;
 
@@ -24,7 +24,7 @@ public class CategoryCRUDAdapter extends RecyclerView.Adapter<CategoryCRUDAdapte
         this.list = list;
     }
 
-    public Category getCategoryAt (int position) {
+    public Category getCategoryAt(int position) {
         return list.get(position);
     }
 
@@ -46,11 +46,11 @@ public class CategoryCRUDAdapter extends RecyclerView.Adapter<CategoryCRUDAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category =list.get(position);
+        Category category = list.get(position);
         byte[] Image = category.getImageUrl();
         Bitmap bitmap = BitmapFactory.decodeByteArray(Image, 0, Image.length);
-        holder.img.setImageBitmap(bitmap);
-        holder.name.setText(category.getName());
+        holder.imageViewCategoryCRUD.setImageBitmap(bitmap);
+        holder.textViewNameCategoryCRUD.setText(category.getName());
 
     }
 
@@ -59,14 +59,14 @@ public class CategoryCRUDAdapter extends RecyclerView.Adapter<CategoryCRUDAdapte
         return list.size();
     }
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView name;
-        private ImageView img;
+    public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private TextView textViewNameCategoryCRUD;
+        private ImageView imageViewCategoryCRUD;
 
         public CategoryViewHolder(@NonNull View view) {
             super(view);
-            name =view.findViewById(R.id.tvnameCategory);
-            img = view.findViewById(R.id.imgCategory);
+            textViewNameCategoryCRUD = view.findViewById(R.id.textViewNameCategoryCRUD);
+            imageViewCategoryCRUD = view.findViewById(R.id.imageViewCategoryCRUD);
             view.setOnClickListener(this);
         }
 
