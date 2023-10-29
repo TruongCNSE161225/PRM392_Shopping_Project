@@ -1,11 +1,12 @@
-package com.example.prm392_shopping_project;
-
-import androidx.fragment.app.FragmentActivity;
+package com.example.prm392_shopping_project.fragment;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.fragment.app.FragmentActivity;
+
+import com.example.prm392_shopping_project.R;
 import com.example.prm392_shopping_project.databinding.ActivityFragmentMapBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,7 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapFragment extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityFragmentMapBinding binding;
@@ -51,3 +52,4 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(fpt));
     }
 }
+

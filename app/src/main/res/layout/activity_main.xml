@@ -51,9 +51,9 @@
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/setting_main"
-            app:layout_constraintEnd_toStartOf="@+id/setting_main"
-            app:layout_constraintTop_toTopOf="@+id/setting_main"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewMainSetting"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewMainSetting"
+            app:layout_constraintTop_toTopOf="@+id/imageViewMainSetting"
             app:srcCompat="@drawable/ic_cart_black" />
 
         <com.nex3z.notificationbadge.NotificationBadge

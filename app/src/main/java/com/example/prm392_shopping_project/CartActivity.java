@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.prm392_shopping_project.adapter.CartAdapter;
-import com.example.prm392_shopping_project.model.Event.EventCalculateTotalPrice;
+import com.example.prm392_shopping_project.model.event.EventCalculateTotalPrice;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

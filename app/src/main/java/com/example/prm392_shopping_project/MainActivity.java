@@ -19,6 +19,7 @@ import com.example.prm392_shopping_project.database.AccountDB;
 import com.example.prm392_shopping_project.database.AppDatabaseContext;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.database.ProductDB;
+import com.example.prm392_shopping_project.fragment.MapFragment;
 import com.example.prm392_shopping_project.model.Account;
 import com.example.prm392_shopping_project.model.Cart;
 import com.example.prm392_shopping_project.model.Category;
@@ -97,17 +98,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        imageViewMainSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(i);
-            }
-        });
+//        imageViewMainSetting.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+//                startActivity(i);
+//            }
+//        });
         imageViewMapsLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, MapActivity.class);
+                Intent i = new Intent(MainActivity.this, MapFragment.class);
                 startActivity(i);
             }
         });
