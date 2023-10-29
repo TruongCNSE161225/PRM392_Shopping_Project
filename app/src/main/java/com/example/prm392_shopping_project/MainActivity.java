@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         imageViewMapsLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         // seedingData
         List<Category> allCategory = categoryDB.getAll();
 //        if (allCategory.size() == 0){

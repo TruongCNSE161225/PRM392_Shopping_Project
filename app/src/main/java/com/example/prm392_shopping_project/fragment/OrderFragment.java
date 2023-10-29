@@ -44,11 +44,12 @@ public class OrderFragment extends Fragment {
         textViewFragmentOrderAmount = view.findViewById(R.id.textViewFragmentOrderRevenue);
         textViewFragmentOrder = view.findViewById(R.id.textViewFragmentOrder);
         textViewFragmentOrderCount = view.findViewById(R.id.textViewFragmentOrderCount);
+        textViewFragmentOrderCustomer = view.findViewById(R.id.textViewFragmentOrderCustomer);
 
         orderList = new ArrayList<>();
-        orderList = orderDB.getAll();
+//        orderList = orderDB.getAll();
 
-//        customerList = new ArrayList<>();
+        customerList = new ArrayList<>();
 //        customerList = customerDB.getAll();
 
         textViewFragmentOrderCount.setText("Tổng đơn: " + orderList.size());

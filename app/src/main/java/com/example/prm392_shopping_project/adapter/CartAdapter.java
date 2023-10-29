@@ -18,7 +18,7 @@ import com.example.prm392_shopping_project.Interface.IImageOnClick;
 import com.example.prm392_shopping_project.MainActivity;
 import com.example.prm392_shopping_project.R;
 import com.example.prm392_shopping_project.model.Cart;
-import com.example.prm392_shopping_project.model.event.EventCalculateTotalPrice;
+import com.example.prm392_shopping_project.model.Event.EventCalculateTotalPrice;
 
 import org.greenrobot.eventbus.EventBus;
 

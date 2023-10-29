@@ -48,7 +48,7 @@ public class SignupActivity extends AppCompatActivity {
                 } else if (db.checkPhone(userPhone)) {
                     Toast.makeText(SignupActivity.this, "Tài khoản đã tồn tại trên hệ thống", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean isAdmin = false;
+                    boolean isAdmin = true;
                     Date currentDate = new java.sql.Date(System.currentTimeMillis());
                     Account account = new Account(userPhone, userPassword, currentDate, isAdmin);
 

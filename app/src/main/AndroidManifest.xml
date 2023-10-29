@@ -9,10 +9,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -57,14 +53,15 @@
             android:name=".AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MapActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
 
         <activity
             android:name=".SignupActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MapActivity"
             android:exported="false" />
 
         <activity
@@ -73,7 +70,7 @@
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".AllCategoryActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

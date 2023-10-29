@@ -15,7 +15,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderDB extends AppDatabaseContext implements IGenericDB<Order> {
+public class OrderDB extends AppDatabaseContext implements IGenericDB<Order>{
     public OrderDB(@Nullable Context context) {
         super(context);
     }
@@ -30,16 +30,16 @@ public class OrderDB extends AppDatabaseContext implements IGenericDB<Order> {
         long count = db.insert(ORDER_TABLE, null, values);
         return count;
     }
-
-    public int getMaxId() {
+    public int getMaxId(){
         SQLiteDatabase db = super.getReadableDatabase();
-        String sql = "SELECT * FROM " + ORDER_TABLE + " ORDER BY id DESC LIMIT 1";
-        Cursor cursor = db.rawQuery(sql, null);
+        String sql = "SELECT * FROM "+ORDER_TABLE+" ORDER BY id DESC LIMIT 1";
+        Cursor cursor = db.rawQuery(sql,null);
         if (cursor.moveToFirst()) {
             try {
                 int a = cursor.getInt(0);
                 return a;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex){
                 throw new RuntimeException();
             }
         }
@@ -72,7 +72,7 @@ public class OrderDB extends AppDatabaseContext implements IGenericDB<Order> {
         Cursor cursor = db.rawQuery(query, null);
 
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(0);
+            int id =  cursor.getInt(0);
             long c1 = cursor.getLong(1);
             Date c = new Date(cursor.getLong(1));
             float total_bill = cursor.getFloat(2);

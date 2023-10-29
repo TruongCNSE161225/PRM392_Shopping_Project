@@ -40,4 +40,14 @@
         android:text="Đơn hàng"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFragmentOrderCount" />
+    <TextView
+        android:id="@+id/textViewFragmentOrderCustomer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Thông tin khách hàng đính kèm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFragmentOrder" />
 </androidx.constraintlayout.widget.ConstraintLayout>
