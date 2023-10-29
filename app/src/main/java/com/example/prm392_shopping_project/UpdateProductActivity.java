@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.ProductDB;
+import com.example.prm392_shopping_project.fragment.ProductFragment;
 import com.example.prm392_shopping_project.model.Product;
 
 import java.io.ByteArrayOutputStream;
@@ -89,8 +90,8 @@ public class UpdateProductActivity extends AppCompatActivity {
         db = new ProductDB(this);
         db.update(pro);
         Toast.makeText(UpdateProductActivity.this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
-        Intent back = new Intent(UpdateProductActivity.this, HomeActivity.class);
-        startActivity(back);
+        Intent intent = new Intent(UpdateProductActivity.this, ProductFragment.class);
+        startActivity(intent);
     }
 
     private byte[] imageViewToByte(ImageView imageView) {

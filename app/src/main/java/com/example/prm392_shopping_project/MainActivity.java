@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     List<Product> recentlyViewedList;
 
     TextView textViewMainAllCategory, textViewMainProduct;
-    ImageView imageViewMainCart, imageViewMainSetting;
+    ImageView imageViewMainCart, imageViewMainSetting, imageViewMapsLogo;
     NotificationBadge notificationBadgeMainCart;
 
     public static List<Cart> cartList;
@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         imageViewMainCart = findViewById(R.id.imageViewMainCart);
         imageViewMainSetting = findViewById(R.id.imageViewMainSetting);
         notificationBadgeMainCart = findViewById(R.id.notificationBadgeMainCart);
+        imageViewMapsLogo = findViewById(R.id.imageViewMapsLogo);
+
         if (cartList != null) {
 //            bage.setText(String.valueOf(cartList.size()));
 
@@ -102,6 +104,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        imageViewMapsLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(i);
+            }
+        });
+
         // seedingData
         List<Category> allCategory = categoryDB.getAll();
 //        if (allCategory.size() == 0){

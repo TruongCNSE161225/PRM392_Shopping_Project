@@ -24,13 +24,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductFragment extends Fragment implements ProductAdapter.ProductListener{
+public class ProductFragment extends Fragment implements ProductAdapter.ProductListener {
     RecyclerView recyclerViewFragmentProduct;
     ProductAdapter productAdapter;
     ProductDB db;
     List<Product> productList;
     FloatingActionButton floatingActionButtonFragmentProduct;
     SearchView searchViewFragmentProduct;
+
     public ProductFragment() {
     }
 
@@ -39,9 +40,10 @@ public class ProductFragment extends Fragment implements ProductAdapter.ProductL
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.activity_fragment_product, container, false);
     }
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        db= new ProductDB((getContext()));
+        db = new ProductDB((getContext()));
         floatingActionButtonFragmentProduct = view.findViewById(R.id.floatingActionButtonFragmentProduct);
         recyclerViewFragmentProduct = view.findViewById(R.id.recyclerViewFragmentProduct);
         searchViewFragmentProduct = view.findViewById(R.id.searchViewFragmentProduct);
@@ -75,11 +77,12 @@ public class ProductFragment extends Fragment implements ProductAdapter.ProductL
             }
         });
     }
+
     public void onItemClick(View view, int position) {
         Product product = productAdapter.getProductAt(position);
-        Intent intent= new Intent(getContext(), ViewDetailProductActivity.class);
-        Bundle bundle=new Bundle();
-        bundle.putSerializable("object_product",product);
+        Intent intent = new Intent(getContext(), ViewDetailProductActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_product", product);
         intent.putExtras(bundle);
         getContext().startActivity(intent);
 

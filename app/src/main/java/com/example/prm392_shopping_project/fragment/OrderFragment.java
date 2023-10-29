@@ -11,16 +11,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.prm392_shopping_project.R;
+import com.example.prm392_shopping_project.database.CustomerDB;
 import com.example.prm392_shopping_project.database.OrderDB;
+import com.example.prm392_shopping_project.model.Customer;
 import com.example.prm392_shopping_project.model.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderFragment extends Fragment {
-    OrderDB db;
-    TextView textViewFragmentOrderCount, textViewFragmentOrderAmount, textViewFragmentOrder;
-    List<Order> list;
+    OrderDB orderDB;
+    CustomerDB customerDB;
+    TextView textViewFragmentOrderCount, textViewFragmentOrderAmount,
+            textViewFragmentOrder, textViewFragmentOrderCustomer;
+    List<Order> orderList;
+    List<Customer> customerList;
 
     public OrderFragment() {
     }
@@ -35,22 +40,30 @@ public class OrderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        db = new OrderDB(getContext());
+        orderDB = new OrderDB(getContext());
         textViewFragmentOrderAmount = view.findViewById(R.id.textViewFragmentOrderRevenue);
         textViewFragmentOrder = view.findViewById(R.id.textViewFragmentOrder);
         textViewFragmentOrderCount = view.findViewById(R.id.textViewFragmentOrderCount);
 
-        list = new ArrayList<>();
-        list = db.getAll();
+        orderList = new ArrayList<>();
+        orderList = orderDB.getAll();
 
-        textViewFragmentOrderCount.setText("Tổng đơn: " + list.size());
+//        customerList = new ArrayList<>();
+//        customerList = customerDB.getAll();
+
+        textViewFragmentOrderCount.setText("Tổng đơn: " + orderList.size());
         long totalAmount = 0;
         String order = "";
-        for (int i = 0; i < list.size(); i++) {
-            totalAmount += list.get(i).getTotalBill();
-            order += list.get(i);
+        for (int i = 0; i < orderList.size(); i++) {
+            totalAmount += orderList.get(i).getTotalBill();
+            order += orderList.get(i);
         }
+//        String customer = "";
+//        for (int y = 0; y < customerList.size(); y++) {
+//            customer += customerList.get(y);
+//        }
         textViewFragmentOrderAmount.setText("Doanh thu: " + totalAmount + " Đ");
         textViewFragmentOrder.setText(order);
+//        textViewFragmentOrderCustomer.setText(customer);
     }
 }

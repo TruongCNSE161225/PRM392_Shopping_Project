@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.fragment.CategoryFragment;
+import com.example.prm392_shopping_project.fragment.ProductFragment;
 import com.example.prm392_shopping_project.model.Category;
 
 import java.io.ByteArrayOutputStream;
@@ -62,6 +63,8 @@ public class AddCategoryActivity extends AppCompatActivity {
                             imageViewToByte(imageViewAddCategory))
                     );
                     Toast.makeText(AddCategoryActivity.this, "Thêm loại sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AddCategoryActivity.this, CategoryFragment.class);
+                    startActivity(intent);
                     editTextAddCategoryName.setText("");
                     imageViewAddCategory.setImageResource(R.drawable.profile_picture);
                 } catch (Exception e) {

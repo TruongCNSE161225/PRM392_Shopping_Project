@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.example.prm392_shopping_project.database.AccountDB;
 import com.example.prm392_shopping_project.database.CategoryDB;
 import com.example.prm392_shopping_project.database.ProductDB;
+import com.example.prm392_shopping_project.fragment.CategoryFragment;
 import com.example.prm392_shopping_project.model.Category;
 
 import java.io.ByteArrayOutputStream;
@@ -36,8 +37,9 @@ public class UpdateCategoryActivity extends AppCompatActivity {
     EditText editTextUpdateCategoryName;
     ImageView imageViewUpdateCategory;
     Button buttonUpdateCategory, buttonDeleteCategory, buttonUpdateCategoryImage;
-    CategoryDB db;
+    CategoryDB cdb;
     ProductDB pdb;
+    AccountDB adb;
     final int REQUEST_CODE_GALLERY = 999;
 
     @Override
@@ -45,7 +47,7 @@ public class UpdateCategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_category);
         pdb = new ProductDB(this);
-        db = new CategoryDB(this);
+        cdb = new CategoryDB(this);
         textViewUpdateCategoryId = findViewById(R.id.textViewUpdateCategoryId);
         editTextUpdateCategoryName = findViewById(R.id.editTextUpdateCategoryName);
         imageViewUpdateCategory = findViewById(R.id.imageViewUpdateCategory);
@@ -77,16 +79,10 @@ public class UpdateCategoryActivity extends AppCompatActivity {
                 int id = Integer.parseInt(textViewUpdateCategoryId.getText().toString());
                 String name = editTextUpdateCategoryName.getText().toString();
                 Category category = new Category(id, name, imageViewToByte(imageViewUpdateCategory));
-                db.update(category);
+                cdb.update(category);
                 Toast.makeText(UpdateCategoryActivity.this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
-//                AccountDB db;
-//                String userPhone = phone.getText().toString();
-//                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-//                intent.putExtra("isAdmin", isAdmin);
-//                intent.putExtra("username", userPhone);
-//                startActivity(intent);
-                Intent back = new Intent(UpdateCategoryActivity.this, HomeActivity.class);
-                startActivity(back);
+                Intent intent = new Intent(UpdateCategoryActivity.this, CategoryFragment.class);
+                startActivity(intent);
             }
         });
 
@@ -102,8 +98,7 @@ public class UpdateCategoryActivity extends AppCompatActivity {
                     builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            db.delete(id);
-
+                            cdb.delete(id);
                         }
                     });
                     builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -114,12 +109,15 @@ public class UpdateCategoryActivity extends AppCompatActivity {
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
+                    Intent intent = new Intent(UpdateCategoryActivity.this, CategoryFragment.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(UpdateCategoryActivity.this, "Không thể xoá vì đang có sản phẩm hiện hành", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(UpdateCategoryActivity.this, CategoryFragment.class);
+                    startActivity(intent);
                 }
             }
         });
-
     }
 
     private byte[] imageViewToByte(ImageView imageView) {

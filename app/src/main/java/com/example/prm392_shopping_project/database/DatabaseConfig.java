@@ -23,8 +23,8 @@ public class DatabaseConfig {
     public static final String Customers = "CREATE TABLE " + CUSTOMER_TABLE + "(\n" +
             "   [id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
             "   [email] nvarchar(50) NOT NULL COLLATE NOCASE,\n" +
-            "   [full_name] nvarchar(20) NOT NULL COLLATE NOCASE,\n" +
-            "   [address] int NOT NULL,\n" +
+            "   [name] nvarchar(50) NOT NULL COLLATE NOCASE,\n" +
+            "   [address] nvarchar(50) NOT NULL,\n" +
             "   [phone] nvarchar(13) NOT NULL,\n" +
             "   CONSTRAINT [FK_Customers_Accounts] FOREIGN KEY ([phone])\n" +
             "      REFERENCES [Accounts]([phone]) ON DELETE NO ACTION ON UPDATE NO ACTION\n" +

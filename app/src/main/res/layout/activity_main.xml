@@ -16,6 +16,14 @@
         app:layout_constraintTop_toTopOf="@+id/textViewMainNameStore"
         app:srcCompat="@drawable/aarlogo" />
 
+    <ImageView
+        android:id="@+id/imageViewMapsLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewMainLogoStore"
+        app:layout_constraintTop_toTopOf="@+id/imageViewMainLogoStore"
+        app:srcCompat="@drawable/gps" />
     <TextView
         android:id="@+id/textViewMainNameStore"
         android:layout_width="wrap_content"
@@ -172,4 +180,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainDescriptionStore" />
 
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

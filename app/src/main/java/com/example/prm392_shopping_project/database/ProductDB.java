@@ -14,7 +14,7 @@ import com.example.prm392_shopping_project.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDB extends AppDatabaseContext implements IGenericDB<Product>{
+public class ProductDB extends AppDatabaseContext implements IGenericDB<Product> {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -89,8 +89,7 @@ public class ProductDB extends AppDatabaseContext implements IGenericDB<Product>
                         cursor.getBlob(8),
                         cursor.getBlob(9));
                 return product;
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 throw new RuntimeException();
             }
         }
@@ -99,48 +98,48 @@ public class ProductDB extends AppDatabaseContext implements IGenericDB<Product>
     }
 
     @Override
-    public List<Product> getAll(){
+    public List<Product> getAll() {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM " + PRODUCT_TABLE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
         while (cursor.moveToNext()) {
-            int id= cursor.getInt(0);
-            String name= cursor.getString(1);
-            String description= cursor.getString(2);
-            float price= cursor.getFloat(3);
-            int quantity= cursor.getInt(4);
-            String unit= cursor.getString(5);
-            int category_id= cursor.getInt(6);
-            int discount=cursor.getInt(7);
-            byte[] img= cursor.getBlob(8);
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String description = cursor.getString(2);
+            float price = cursor.getFloat(3);
+            int quantity = cursor.getInt(4);
+            String unit = cursor.getString(5);
+            int category_id = cursor.getInt(6);
+            int discount = cursor.getInt(7);
+            byte[] img = cursor.getBlob(8);
 //            byte[] imgBig= cursor.getBlob(9);
 
-            Product product = new Product(id,name,description,price,quantity,unit,category_id,discount,img,img);
+            Product product = new Product(id, name, description, price, quantity, unit, category_id, discount, img, img);
             list.add(product);
         }
         return list;
     }
 
-    public List<Product> getDiscountProduct(){
+    public List<Product> getDiscountProduct() {
         List<Product> list = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(PRODUCT_TABLE, null, null , null, null, null, "discount desc");
+        Cursor cursor = db.query(PRODUCT_TABLE, null, null, null, null, null, "discount desc");
 
         while (cursor.moveToNext()) {
-            int id= cursor.getInt(0);
-            String name= cursor.getString(1);
-            String description= cursor.getString(2);
-            float price= cursor.getFloat(3);
-            int quantity= cursor.getInt(4);
-            String unit= cursor.getString(5);
-            int category_id= cursor.getInt(6);
-            int discount=cursor.getInt(7);
-            byte[] img= cursor.getBlob(8);
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String description = cursor.getString(2);
+            float price = cursor.getFloat(3);
+            int quantity = cursor.getInt(4);
+            String unit = cursor.getString(5);
+            int category_id = cursor.getInt(6);
+            int discount = cursor.getInt(7);
+            byte[] img = cursor.getBlob(8);
 //            byte[] imgBig= cursor.getBlob(9);
 
-            Product product = new Product(id,name,description,price,quantity,unit,category_id,discount,img,img);
+            Product product = new Product(id, name, description, price, quantity, unit, category_id, discount, img, img);
             list.add(product);
         }
         return list;
@@ -175,7 +174,7 @@ public class ProductDB extends AppDatabaseContext implements IGenericDB<Product>
 
     public List<Product> getByName(String s) {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * FROM " + PRODUCT_TABLE + " where name like '%" + s+"%'";
+        String query = "SELECT * FROM " + PRODUCT_TABLE + " where name like '%" + s + "%'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
@@ -196,6 +195,7 @@ public class ProductDB extends AppDatabaseContext implements IGenericDB<Product>
         }
         return list;
     }
+
     public List<Product> getByCateId(int id) {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * FROM " + PRODUCT_TABLE + " where category_id = " + id;
@@ -239,8 +239,7 @@ public class ProductDB extends AppDatabaseContext implements IGenericDB<Product>
                         cursor.getBlob(8),
                         cursor.getBlob(9));
                 return product;
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 throw new RuntimeException();
             }
         }

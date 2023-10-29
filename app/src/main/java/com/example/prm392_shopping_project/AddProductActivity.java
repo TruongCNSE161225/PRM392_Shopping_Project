@@ -97,6 +97,8 @@ public class AddProductActivity extends AppCompatActivity {
                     editTextAddProductQuantity.setText("");
                     editTextAddProductDiscount.setText("");
                     imageViewAddProduct.setImageResource(R.drawable.profile_picture);
+                    Intent intent = new Intent(AddProductActivity.this, ProductFragment.class);
+                    startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -54,10 +54,11 @@ public class BuyConfirmActivity extends AppCompatActivity {
                 } else {
                     long millis = System.currentTimeMillis();
                     Date date = new Date(millis);
+                    Date currentDate = new java.sql.Date(System.currentTimeMillis());
                     Customer cus = new Customer(name, email, address, phone);
                     long a = customerDB.insert(cus);
                     int cusId = customerDB.getMaxId();
-                    long saveOrder = orderDB.insert(new Order(cusId, date, Double.parseDouble(totalPrice)));
+                    long saveOrder = orderDB.insert(new Order(cusId, currentDate, Double.parseDouble(totalPrice)));
                     int orderId = orderDB.getMaxId();
                     for (int j = 0; j < MainActivity.cartList.size(); j++) {
                         orderDetailDB.insert(new OrderDetail(orderId, MainActivity.cartList.get(j).getId(),
