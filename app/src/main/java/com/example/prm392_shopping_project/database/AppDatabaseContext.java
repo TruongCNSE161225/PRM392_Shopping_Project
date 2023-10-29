@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class AppDatabaseContext extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PRM392_Shopping_Project_Database_Test_2";
+    private static final String DATABASE_NAME = "PRM392_Shopping_Project_Database";
     private static final int DATABASE_VERSION = 2;
 
     public static DatabaseConfig databaseConfig = new DatabaseConfig();

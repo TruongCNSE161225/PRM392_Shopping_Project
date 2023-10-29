@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF9800"
     tools:context=".AllCategoryActivity">
 
 
@@ -11,8 +12,8 @@
         android:id="@+id/textViewAllCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lựa chọn loại sản phẩm"
         android:fontFamily="@font/open_sans"
+        android:text="Lựa chọn loại sản phẩm"
         android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewAllCategoryBack"
         app:layout_constraintEnd_toEndOf="parent"

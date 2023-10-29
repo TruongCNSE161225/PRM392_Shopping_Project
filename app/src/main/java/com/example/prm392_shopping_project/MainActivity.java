@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_shopping_project.adapter.CategoryAdapter;
-import com.example.prm392_shopping_project.adapter.DiscountedProductAdapter;
 import com.example.prm392_shopping_project.adapter.RecentlyViewedAdapter;
 import com.example.prm392_shopping_project.database.AccountDB;
 import com.example.prm392_shopping_project.database.AppDatabaseContext;
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     ProductDB productDB = new ProductDB(this);
     CategoryDB categoryDB = new CategoryDB(this);
     RecyclerView recyclerViewMainDiscount, recyclerViewMainCategory, recyclerViewMainItem;
-    DiscountedProductAdapter discountedProductAdapter;
     List<Product> discountedProductsList;
 
     CategoryAdapter categoryAdapter;
@@ -137,19 +135,10 @@ public class MainActivity extends AppCompatActivity {
         // adding data to model
         recentlyViewedList = productDB.getAll();
 
-        setDiscountedRecycler(discountedProductsList);
         setCategoryRecycler(categoryList);
         setRecentlyViewedRecycler(recentlyViewedList);
 
     }
-
-    private void setDiscountedRecycler(List<Product> dataList) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMainDiscount.setLayoutManager(layoutManager);
-        discountedProductAdapter = new DiscountedProductAdapter(this, dataList);
-        recyclerViewMainDiscount.setAdapter(discountedProductAdapter);
-    }
-
 
     private void setCategoryRecycler(List<Category> categoryDataList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);

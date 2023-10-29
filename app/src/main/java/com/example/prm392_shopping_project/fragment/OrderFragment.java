@@ -44,13 +44,9 @@ public class OrderFragment extends Fragment {
         textViewFragmentOrderAmount = view.findViewById(R.id.textViewFragmentOrderRevenue);
         textViewFragmentOrder = view.findViewById(R.id.textViewFragmentOrder);
         textViewFragmentOrderCount = view.findViewById(R.id.textViewFragmentOrderCount);
-        textViewFragmentOrderCustomer = view.findViewById(R.id.textViewFragmentOrderCustomer);
 
         orderList = new ArrayList<>();
-//        orderList = orderDB.getAll();
-
-        customerList = new ArrayList<>();
-//        customerList = customerDB.getAll();
+        orderList = orderDB.getAll();
 
         textViewFragmentOrderCount.setText("Tổng đơn: " + orderList.size());
         long totalAmount = 0;
@@ -59,12 +55,7 @@ public class OrderFragment extends Fragment {
             totalAmount += orderList.get(i).getTotalBill();
             order += orderList.get(i);
         }
-//        String customer = "";
-//        for (int y = 0; y < customerList.size(); y++) {
-//            customer += customerList.get(y);
-//        }
         textViewFragmentOrderAmount.setText("Doanh thu: " + totalAmount + " Đ");
         textViewFragmentOrder.setText(order);
-//        textViewFragmentOrderCustomer.setText(customer);
     }
 }

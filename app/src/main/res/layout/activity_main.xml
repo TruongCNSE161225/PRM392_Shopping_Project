@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F1F0EF"
     tools:context=".MainActivity">
 
     <ImageView
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="#E4E3E1"
         android:fontFamily="@font/open_sans_bold"
         android:text="HT Store"
         android:textColor="@android:color/background_dark"
@@ -33,7 +34,7 @@
         android:id="@+id/imageViewMapsLogo"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         app:layout_constraintStart_toEndOf="@+id/imageViewMainLogoStore"
         app:layout_constraintTop_toTopOf="@+id/imageViewMainLogoStore"
         app:srcCompat="@drawable/gps" />
@@ -45,16 +46,6 @@
         android:layout_marginRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageViewMainCart"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewMainSetting"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewMainSetting"
-            app:layout_constraintTop_toTopOf="@+id/imageViewMainSetting"
-            app:srcCompat="@drawable/ic_cart_black" />
 
         <com.nex3z.notificationbadge.NotificationBadge
             android:id="@+id/notificationBadgeMainCart"
@@ -94,7 +85,7 @@
         android:id="@+id/recyclerViewMainDiscount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +98,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Những sản phẩm ưu đãi"
+        android:text="Xem tất cả sản phẩm"
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -176,9 +167,20 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Xem thêm"
+        android:text="Xem ngay"
         android:textColor="#448AFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainDescriptionStore" />
+
+    <ImageView
+        android:id="@+id/imageViewMainCart"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewMainSetting"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewMainSetting"
+        app:layout_constraintTop_toTopOf="@+id/imageViewMainSetting"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/ic_cart_black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

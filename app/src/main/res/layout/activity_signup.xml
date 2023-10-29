@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF9800"
     tools:context=".LoginActivity">
 
     <TextView
@@ -12,16 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:background="@color/Light_blue"
         android:gravity="center_horizontal|top"
         android:text="Đăng ký tài khoản"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="100dp" />
+        tools:layout_editor_absoluteY="114dp" />
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -73,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
+        android:backgroundTint="#8BC34A"
         android:text="Đăng ký"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,10 +87,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:onClick="Login"
         android:text="@string/signup_login"
         android:textColor="@color/black"
-        android:onClick="Login"
-        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF9800"
     tools:context=".BuyConfirmActivity">
 
     <Toolbar
         android:id="@+id/toobarBuyConfirm"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/Light_blue"
+        android:background="#3F51B5"
         android:title="Xác nhận mua hàng"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -203,7 +204,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/red"
+            android:background="#8BC34A"
             android:elevation="5dp"
             android:gravity="center"
             android:text="Đặt hàng"
