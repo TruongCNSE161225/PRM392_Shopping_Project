@@ -44,7 +44,7 @@
                 android:background="@android:color/transparent"
                 android:gravity="bottom"
                 android:hint="Nhập tên"
-                android:inputType="textPostalAddress"
+                android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textSize="16dp" />/>
 

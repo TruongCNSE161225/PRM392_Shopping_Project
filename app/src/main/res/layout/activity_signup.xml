@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/Light_blue"
         android:gravity="center_horizontal|top"
         android:text="Đăng ký tài khoản"
         android:textColor="@color/black"

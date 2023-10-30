@@ -5,10 +5,10 @@ import java.sql.Date;
 public class Account {
     private String phone;
     private String password;
-    private Date createdAt;
+    private String createdAt;
     private boolean isAdmin;
 
-    public Account(String phone, String password, Date createdAt, boolean isAdmin) {
+    public Account(String phone, String password, String createdAt, boolean isAdmin) {
         this.phone = phone;
         this.password = password;
         this.createdAt = createdAt;
@@ -31,11 +31,11 @@ public class Account {
         this.password = password;
     }
 
-    public Date getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

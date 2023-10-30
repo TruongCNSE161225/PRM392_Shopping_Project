@@ -73,7 +73,7 @@ public class Order {
     public String toString() {
         return
                 "customerId: " + customerId +
-                ", orderDate: " + orderDate +
-                ", totalBill: " + totalBill + "\n\n";
+                        ", orderDate: " + orderDate +
+                        ", totalBill: " + totalBill + "\n\n";
     }
 }

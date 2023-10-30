@@ -11,7 +11,7 @@ public class DatabaseConfig {
     public static final String Accounts = "CREATE TABLE " + ACCOUNT_TABLE + "(\n" +
             "   [phone] nvarchar(50) NOT NULL COLLATE NOCASE,\n" +
             "   [password] nchar(10) NOT NULL COLLATE NOCASE,\n" +
-            "   [date_created] nchar(10) NOT NULL COLLATE NOCASE,\n" +
+            "   [date_created] string NOT NULL COLLATE NOCASE,\n" +
             "   [is_admin] bit NOT NULL,\n" +
             "   PRIMARY KEY ([phone])\n" +
             ")";

@@ -94,7 +94,7 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
 
             String phone = cursor.getString(0);
             String pass = cursor.getString(1);
-            Date date = new Date(cursor.getLong(2));
+            String date = cursor.getString(2);;
             int isAdmin_temp = cursor.getInt(3);
             boolean isAdmin;
             if (isAdmin_temp == 0) {
@@ -112,8 +112,9 @@ public class AccountDB extends AppDatabaseContext implements IGenericDB<Account>
     public long seedingData() {
         long millis = System.currentTimeMillis();
         Date today = new Date(millis);
+        String date = String.valueOf(today);
         long count = 0;
-        Account admin = new Account("12345", "admin", today, true);
+        Account admin = new Account("123", "ad", date, true);
         count = insert(admin);
         return count;
     }

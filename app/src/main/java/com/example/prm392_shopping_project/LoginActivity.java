@@ -12,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prm392_shopping_project.database.AccountDB;
+import com.example.prm392_shopping_project.model.Account;
+
+import java.sql.Date;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,6 +33,12 @@ public class LoginActivity extends AppCompatActivity {
         db = new AccountDB(this);
         login = findViewById(R.id.buttonLogin);
         signup = findViewById(R.id.textViewForSignup);
+
+        long millis = System.currentTimeMillis();
+        Date today = new Date(millis);
+        String date = String.valueOf(today);
+        Account admin = new Account("123", "ad", date, true);
+        db.insert(admin);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

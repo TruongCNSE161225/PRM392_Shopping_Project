@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.prm392_shopping_project.database.AccountDB;
 import com.example.prm392_shopping_project.model.Account;
 
@@ -49,7 +50,8 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(SignupActivity.this, "Tài khoản đã tồn tại trên hệ thống", Toast.LENGTH_SHORT).show();
                 } else {
                     boolean isAdmin = false;
-                    Date currentDate = new java.sql.Date(System.currentTimeMillis());
+                    Date date = new java.sql.Date(System.currentTimeMillis());
+                    String currentDate = String.valueOf(date);
                     Account account = new Account(userPhone, userPassword, currentDate, isAdmin);
 
                     long result = db.insert(account);
