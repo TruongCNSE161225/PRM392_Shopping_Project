@@ -32,6 +32,9 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawable);
         imageViewHomeMenu = findViewById(R.id.imageViewHomeMenu);
         navigationViewHome = findViewById(R.id.navigationViewHome);
+
+
+
         imageViewHomeMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationViewHome, navController);
         textViewHomeMenu = findViewById(R.id.textViewHomeMenu);
         View headerView = navigationViewHome.getHeaderView(0);
+
         // getIntent from LoginActivity
         Intent intent = getIntent();
         String username = (String) intent.getSerializableExtra("username");

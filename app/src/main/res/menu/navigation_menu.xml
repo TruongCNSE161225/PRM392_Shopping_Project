@@ -15,16 +15,4 @@
         android:icon="@drawable/user"
         android:title="Total Order"/>
 
-    <item
-        android:title="Others">
-        <menu>
-
-            <item
-                android:id="@+id/menuLogOut"
-                android:icon="@drawable/logout"
-                android:title="Log out"/>
-        </menu>
-
-    </item>
-
 </menu>

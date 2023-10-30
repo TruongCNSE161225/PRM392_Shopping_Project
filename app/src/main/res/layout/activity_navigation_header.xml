@@ -8,6 +8,7 @@
     android:padding="20dp"
     tools:context=".HomeActivity">
 
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageProfileHome"
         android:layout_width="70dp"
