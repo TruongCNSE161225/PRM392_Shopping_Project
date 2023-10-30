@@ -39,7 +39,6 @@ public class UpdateCategoryActivity extends AppCompatActivity {
     Button buttonUpdateCategory, buttonDeleteCategory, buttonUpdateCategoryImage;
     CategoryDB cdb;
     ProductDB pdb;
-    AccountDB adb;
     final int REQUEST_CODE_GALLERY = 999;
 
     @Override
@@ -99,6 +98,8 @@ public class UpdateCategoryActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             cdb.delete(id);
+                            Intent intent = new Intent(UpdateCategoryActivity.this, CategoryFragment.class);
+                            startActivity(intent);
                         }
                     });
                     builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -109,8 +110,6 @@ public class UpdateCategoryActivity extends AppCompatActivity {
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                    Intent intent = new Intent(UpdateCategoryActivity.this, CategoryFragment.class);
-                    startActivity(intent);
                 } else {
                     Toast.makeText(UpdateCategoryActivity.this, "Không thể xoá vì đang có sản phẩm hiện hành", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(UpdateCategoryActivity.this, CategoryFragment.class);

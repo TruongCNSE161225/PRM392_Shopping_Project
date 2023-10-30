@@ -31,7 +31,7 @@ public class DatabaseConfig {
             ")";
     public static final String Orders = "CREATE TABLE " + ORDER_TABLE + "(\n" +
             "   [id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
-            "   [order_date] date NOT NULL COLLATE NOCASE,\n" +
+            "   [order_date] string NOT NULL COLLATE NOCASE,\n" +
             "   [total_bill] float,\n" +
             "   [customer_id] int NOT NULL,\n" +
             "   CONSTRAINT [FK_Order_Customers] FOREIGN KEY ([customer_id])\n" +

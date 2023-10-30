@@ -23,9 +23,8 @@ public class OrderFragment extends Fragment {
     OrderDB orderDB;
     CustomerDB customerDB;
     TextView textViewFragmentOrderCount, textViewFragmentOrderAmount,
-            textViewFragmentOrder, textViewFragmentOrderCustomer;
+            textViewFragmentOrder;
     List<Order> orderList;
-    List<Customer> customerList;
 
     public OrderFragment() {
     }
@@ -55,7 +54,7 @@ public class OrderFragment extends Fragment {
             totalAmount += orderList.get(i).getTotalBill();
             order += orderList.get(i);
         }
-        textViewFragmentOrderAmount.setText("Doanh thu: " + totalAmount + " Đ");
+        textViewFragmentOrderAmount.setText("Doanh thu: " + totalAmount + " $");
         textViewFragmentOrder.setText(order);
     }
 }

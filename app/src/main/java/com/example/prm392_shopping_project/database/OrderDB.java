@@ -24,7 +24,7 @@ public class OrderDB extends AppDatabaseContext implements IGenericDB<Order>{
     public long insert(Order order) {
         SQLiteDatabase db = super.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("order_date", order.getOrderDate().toString());
+        values.put("order_date", order.getOrderDate());
         values.put("total_bill", order.getTotalBill());
         values.put("customer_id", order.getCustomerId());
         long count = db.insert(ORDER_TABLE, null, values);
@@ -74,10 +74,10 @@ public class OrderDB extends AppDatabaseContext implements IGenericDB<Order>{
         while (cursor.moveToNext()) {
             int id =  cursor.getInt(0);
             long c1 = cursor.getLong(1);
-            Date c = new Date(cursor.getLong(1));
+            String date = cursor.getString(1);
             float total_bill = cursor.getFloat(2);
             int cus_id = cursor.getInt(3);
-            Order order = new Order(id, cus_id, c, total_bill);
+            Order order = new Order(id, cus_id, date, total_bill);
             list.add(order);
         }
         return list;

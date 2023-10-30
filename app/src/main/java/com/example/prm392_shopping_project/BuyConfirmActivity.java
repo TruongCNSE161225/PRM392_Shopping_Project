@@ -52,9 +52,8 @@ public class BuyConfirmActivity extends AppCompatActivity {
                     builder.show();
 
                 } else {
-                    long millis = System.currentTimeMillis();
-                    Date date = new Date(millis);
-                    Date currentDate = new java.sql.Date(System.currentTimeMillis());
+                    Date d = new java.sql.Date(System.currentTimeMillis());
+                    String currentDate = String.valueOf(d);
                     Customer cus = new Customer(name, email, address, phone);
                     long a = customerDB.insert(cus);
                     int cusId = customerDB.getMaxId();

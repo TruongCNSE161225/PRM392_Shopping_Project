@@ -1,12 +1,12 @@
 package com.example.prm392_shopping_project.model;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class Order {
     private int orderId;
     private int customerId;
-    private Date orderDate;
+    private String orderDate;
     private double totalBill;
 
     private Customer customer;
@@ -16,14 +16,14 @@ public class Order {
 
     }
 
-    public Order(int orderId, int customerId, Date orderDate, double totalBill) {
+    public Order(int orderId, int customerId, String orderDate, double totalBill) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.orderDate = orderDate;
         this.totalBill = totalBill;
     }
 
-    public Order(int customerId, Date orderDate, double totalBill) {
+    public Order(int customerId, String orderDate, double totalBill) {
         this.customerId = customerId;
         this.orderDate = orderDate;
         this.totalBill = totalBill;
@@ -45,11 +45,11 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
