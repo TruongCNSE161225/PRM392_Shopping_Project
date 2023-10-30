@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     List<Product> recentlyViewedList;
 
     TextView textViewMainAllCategory, textViewMainProduct;
-    ImageView imageViewMainCart, imageViewMainSetting, imageViewMapsLogo;
+    ImageView imageViewMainCart, imageViewMainLogout, imageViewMapsLogo;
     NotificationBadge notificationBadgeMainCart;
 
     public static List<Cart> cartList;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         textViewMainProduct = findViewById(R.id.textViewMainProduct);
         recyclerViewMainItem = findViewById(R.id.recyclerViewMainItem);
         imageViewMainCart = findViewById(R.id.imageViewMainCart);
-        imageViewMainSetting = findViewById(R.id.imageViewMainSetting);
+        imageViewMainLogout = findViewById(R.id.imageViewMainLogout);
         notificationBadgeMainCart = findViewById(R.id.notificationBadgeMainCart);
         imageViewMapsLogo = findViewById(R.id.imageViewMapsLogo);
 
@@ -96,13 +96,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-//        imageViewMainSetting.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        imageViewMainLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
         imageViewMapsLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

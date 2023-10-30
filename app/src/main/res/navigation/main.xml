@@ -22,4 +22,9 @@
         android:name="com.example.prm392_shopping_project.fragment.OrderFragment"
         android:label="Total Order"
         tools:layout="@layout/activity_fragment_order"/>
+
+    <fragment
+        android:id="@+id/menuLogOut"
+        android:name="com.example.prm392_shopping_project.fragment.LogoutFragment"
+        android:label="Logout"/>
 </navigation>

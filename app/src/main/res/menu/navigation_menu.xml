@@ -16,27 +16,9 @@
         android:title="Total Order"/>
 
     <item
-        android:id="@+id/menuContact"
-        android:icon="@drawable/email"
-        android:title="Contact"/>
-
-    <item
         android:title="Others">
         <menu>
-            <item
-                android:id="@+id/menuSetting"
-                android:icon="@drawable/settings"
-                android:title="Setting"/>
 
-            <item
-                android:id="@+id/menuSupport"
-                android:icon="@drawable/headphone"
-                android:title="Support"/>
-
-            <item
-                android:id="@+id/menuAboutUs"
-                android:icon="@drawable/info"
-                android:title="About us"/>
             <item
                 android:id="@+id/menuLogOut"
                 android:icon="@drawable/logout"
